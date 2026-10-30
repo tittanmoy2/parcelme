@@ -1,0 +1,595 @@
+/* Generated from docs/prototype/assets/tailwind.css by docs/plans/tools/build-globals.js.
+   Edit the generator (or the prototype) rather than this file's prototype sections. */
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+/* Preflight is OFF, as in the prototype. Elements carry their own resets. */
+
+
+/* The design's breakpoints. Tailwind's max-[760px]: means width < 760px, but the design's
+   (max-width:760px) includes 760, so use upto-760: etc. For min-width, min-[761px]: is already exact. */
+@custom-variant upto-420 (@media (max-width:420px));
+@custom-variant upto-520 (@media (max-width:520px));
+@custom-variant upto-600 (@media (max-width:600px));
+@custom-variant upto-640 (@media (max-width:640px));
+@custom-variant upto-760 (@media (max-width:760px));
+@custom-variant upto-860 (@media (max-width:860px));
+@custom-variant upto-900 (@media (max-width:900px));
+@custom-variant rider-frame (@media (min-width:600px) and (min-height:560px));
+/* Tailwind v4's hover: only applies inside @media (hover:hover), so on phones a tap no longer leaves the hover
+   state. The design's :hover rules applied everywhere; keep that (Step 04). */
+@custom-variant hover (&:hover);
+
+/* The design uses exact classic-Tailwind hexes; v4's default palette is oklch and slightly
+   different, so the colours in use are redefined here (other defaults stay available). Sizes and
+   radii are px-named and set no line-height, to keep the design's metrics exactly. */
+@theme {
+
+  --font-sans: var(--font-jakarta), 'Plus Jakarta Sans', sans-serif;
+  --font-mono: var(--font-fira), 'Fira Code', monospace;
+
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  --color-slate-50: #F8FAFC;
+  --color-slate-100: #F1F5F9;
+  --color-slate-200: #E2E8F0;
+  --color-slate-300: #CBD5E1;
+  --color-slate-400: #94A3B8;
+  --color-slate-500: #64748B;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1E293B;
+  --color-slate-900: #0F172A;
+
+  /* Blue/orange shades that white-label does NOT recolour (brand ones are below). */
+  --color-blue-500: #3B82F6;
+  --color-orange-200: #FED7AA;
+  --color-orange-500: #F97316;  /* same hex as accent-500, for warning colours that must not follow the brand */
+  --color-orange-700: #C2410C;
+  --color-orange-800: #9A3412;
+  --color-orange-900: #7C2D12;
+  --color-orange-950: #431407;
+
+  --color-green-50: #F0FDF4;
+  --color-green-100: #DCFCE7;
+  --color-green-200: #BBF7D0;
+  --color-green-300: #86EFAC;
+  --color-green-500: #22C55E;
+  --color-green-600: #16A34A;
+  --color-green-700: #15803D;
+  --color-green-800: #166534;
+  --color-green-900: #14532D;
+
+  --color-red-50: #FEF2F2;
+  --color-red-100: #FEE2E2;
+  --color-red-200: #FECACA;
+  --color-red-300: #FCA5A5;
+  --color-red-600: #DC2626;
+  --color-red-700: #B91C1C;
+  --color-red-800: #991B1B;
+  --color-red-900: #7F1D1D;
+
+  --color-amber-50: #FFFBEB;
+  --color-amber-100: #FEF3C7;
+  --color-amber-200: #FDE68A;
+  --color-amber-500: #F59E0B;
+  --color-amber-600: #D97706;
+  --color-amber-700: #B45309;
+  --color-amber-800: #92400E;
+
+  --color-yellow-200: #FEF08A;
+  --color-stone-900: #1C1917;
+
+  --color-teal-100: #CCFBF1;
+  --color-teal-600: #0D9488;
+  --color-teal-700: #0F766E;
+  --color-teal-800: #115E59;
+
+  --color-indigo-100: #E0E7FF;
+  --color-indigo-600: #4F46E5;
+  --color-indigo-800: #3730A3;
+
+  --color-violet-100: #EDE9FE;
+  --color-violet-600: #7C3AED;
+  --color-violet-800: #5B21B6;
+
+  --color-pink-100: #FCE7F3;
+  --color-pink-800: #9D174D;
+
+  --color-sky-100: #E0F2FE;
+  --color-sky-600: #0284C7;
+  --color-sky-800: #075985;
+
+  /* Not in the classic palette */
+  --color-navy-soft: #1E3A5F;  /* rider frame gradient, dark tiles */
+  --color-night: #0B1220;      /* rider phone frame, scanner */
+  --color-bkash: #E2136E;      /* payment-method logos */
+  --color-nagad: #F6921E;
+
+  --text-10\.5: 10.5px;
+  --text-11: 11px;
+  --text-11\.5: 11.5px;
+  --text-12: 12px;
+  --text-12\.5: 12.5px;
+  --text-13: 13px;
+  --text-13\.5: 13.5px;
+  --text-14: 14px;
+  --text-14\.5: 14.5px;
+  --text-15: 15px;
+  --text-16: 16px;
+  --text-17: 17px;
+  --text-18: 18px;
+  --text-19: 19px;
+  --text-20: 20px;
+  --text-22: 22px;
+  --text-24: 24px;
+  --text-26: 26px;
+  --text-27: 27px;
+  --text-28: 28px;
+  --text-30: 30px;
+  --text-32: 32px;
+  --text-34: 34px;
+  --text-38: 38px;
+  --text-40: 40px;
+
+  --radius-3: 3px;
+  --radius-4: 4px;
+  --radius-5: 5px;
+  --radius-6: 6px;
+  --radius-7: 7px;
+  --radius-8: 8px;
+  --radius-9: 9px;
+  --radius-10: 10px;
+  --radius-11: 11px;
+  --radius-12: 12px;
+  --radius-14: 14px;
+  --radius-16: 16px;
+  --radius-18: 18px;
+  --radius-20: 20px;
+  --radius-22: 22px;
+  --radius-24: 24px;
+  --radius-26: 26px;
+  --radius-28: 28px;
+  --radius-32: 32px;
+
+  --animate-shake: shake .35s;  /* OtpVerify: wrong code */
+  @keyframes shake{25%{transform:translateX(-6px)}50%{transform:translateX(6px)}75%{transform:translateX(-3px)}}
+}
+
+/* Brand colours. White-label (applyBranding in core.js) overrides these variables on :root,
+   so use brand-* / accent-* / navy, never blue-* / orange-*, for anything that should follow the brand.
+   `static`: always emitted, even before any class uses them. */
+@theme static {
+  --color-navy: #10294A;
+
+  --color-brand-50: #EFF6FF;
+  --color-brand-100: #DBEAFE;
+  --color-brand-200: #BFDBFE;
+  --color-brand-300: #93C5FD;
+  --color-brand-400: #60A5FA;
+  --color-brand-600: #2563EB;
+  --color-brand-700: #1D4ED8;
+  --color-brand-800: #1E40AF;
+  --color-brand-900: #1E3A8A;
+
+  --color-accent-50: #FFF7ED;
+  --color-accent-100: #FFEDD5;
+  --color-accent-300: #FDBA74;
+  --color-accent-400: #FB923C;
+  --color-accent-500: #F97316;
+  --color-accent-600: #EA580C;
+  --color-accent-800: #9A3412;
+}
+
+/* Page-wide links (Step 04). Every public, merchant and admin page had exactly this rule in its own <style>
+   (rider pages differ: Step 11). In the base layer, components and utilities beat it, just as the shared classes
+   and inline styles did. Unconverted pages keep their identical copy until their <style> block is deleted. */
+@layer base {
+  :where([data-area="public"],[data-area="merchant"],[data-area="admin"]) a{color:var(--color-brand-700);text-decoration:none}
+  :where([data-area="public"],[data-area="merchant"],[data-area="admin"]) a:hover{color:var(--color-brand-900)}
+}
+
+@layer components {
+  /* from core.css: behaviour added by core.js (toasts, modals, popovers, drawer, admin top bar).
+     The --pm-* variables became theme variables, so white-label recolours these too. */
+  html,body{min-height:100%}
+  body{margin:0;background:var(--color-slate-50)}
+  body>div:first-child{min-height:100vh}
+  :focus-visible{outline:3px solid var(--color-brand-300);outline-offset:2px}
+  .pm-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+  /* Toasts — PM.toast(msg, 'ok'|'bad'|'info') */
+  .pm-toasts{position:fixed;z-index:1000;right:16px;bottom:16px;display:flex;flex-direction:column;gap:10px;max-width:min(380px,calc(100vw - 32px))}
+  .pm-toast{display:flex;gap:10px;align-items:flex-start;padding:14px 16px;border-radius:14px;background:var(--color-slate-900);color:#fff;font:600 14px/1.45 var(--font-sans);box-shadow:0 18px 40px -18px rgba(15,23,42,.6);animation:pm-in .18s ease-out}
+  .pm-toast.ok{background:var(--color-green-900)}.pm-toast.bad{background:var(--color-red-900)}
+  .pm-toast button{margin-left:auto;background:none;border:0;color:inherit;font-size:18px;line-height:1;cursor:pointer;padding:0 0 0 8px}
+
+  /* Modals — <dialog class="pm-modal" id="x">, opened by [data-modal-open="x"] */
+  dialog.pm-modal{border:0;border-radius:20px;padding:0;width:min(560px,calc(100vw - 32px));max-height:calc(100vh - 48px);font-family:var(--font-sans);color:var(--color-slate-900);box-shadow:0 30px 60px -20px rgba(15,23,42,.5)}
+  dialog.pm-modal::backdrop{background:rgba(15,23,42,.55)}
+  .pm-modal-h{display:flex;align-items:center;gap:12px;padding:20px 22px;border-bottom:1px solid var(--color-slate-200)}
+  .pm-modal-h h2{margin:0;font-size:18px;font-weight:800}
+  .pm-modal-h button{margin-left:auto;width:40px;height:40px;border:0;border-radius:10px;background:var(--color-slate-100);cursor:pointer;font-size:20px}
+  .pm-modal-b{padding:22px;display:flex;flex-direction:column;gap:16px}
+  .pm-modal-f{display:flex;justify-content:flex-end;gap:10px;padding:16px 22px;border-top:1px solid var(--color-slate-200)}
+
+  /* Form validation state */
+  .pm-invalid{border-color:var(--color-red-700) !important;box-shadow:0 0 0 3px var(--color-red-100)}
+  .pm-err{color:var(--color-red-700);font-size:12.5px;font-weight:600}
+
+  /* Panel sidebar → drawer at tablet/phone width (merchant + admin) */
+  .pm-menu-btn{display:none}
+  @media (max-width:900px){
+    [data-area="merchant"] aside:first-of-type,[data-area="admin"] aside:first-of-type{flex-basis:100% !important}
+    .pm-menu-btn{display:inline-flex;align-items:center;justify-content:center;margin-left:auto;width:44px;height:44px;border-radius:12px;border:1px solid currentColor;background:transparent;color:inherit;cursor:pointer}
+    [data-area="merchant"] .pm-menu-btn{color:var(--color-slate-900);border-color:var(--color-slate-300)}
+    [data-area="admin"] .pm-menu-btn{color:#fff;border-color:var(--color-slate-700)}
+    /* Closed drawer shows only the logo row (nav, help cards etc. stay hidden). */
+    aside.pm-drawer:not(.open)>*:not(.pm-logo-row){display:none !important}
+    aside.pm-drawer.open>nav{display:flex !important}
+    aside.pm-drawer .pm-logo-row{display:flex;align-items:center}
+  }
+
+  /* The design's visually-hidden <span>s are position:absolute; without a positioned
+     scroll box they escape it and cause page-level horizontal scroll on phones. */
+  [style*="overflow-x:auto"],[style*="overflow-x: auto"],[style*="overflow:auto"]{position:relative}
+
+  /* Buttons for runtime modals */
+  .pm-btn{height:44px;padding:0 16px;border-radius:12px;border:1px solid var(--color-slate-300);background:#fff;color:var(--color-slate-900);font:700 14px var(--font-sans);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;white-space:nowrap}
+  .pm-btn.p{background:var(--color-brand-600);border-color:var(--color-brand-600);color:#fff}
+  .pm-btn.danger{background:var(--color-red-600);border-color:var(--color-red-600);color:#fff}
+  dialog.pm-wide{width:min(760px,calc(100vw - 32px))}
+  dialog.pm-modal form{margin:0;display:flex;flex-direction:column;max-height:calc(100vh - 48px)}
+  dialog.pm-modal .pm-modal-b{overflow:auto}
+
+  /* Popovers — PM.popover() */
+  .pm-pop{position:fixed;z-index:900;min-width:200px;max-width:calc(100vw - 16px);max-height:70vh;overflow:auto;background:#fff;border:1px solid var(--color-slate-200);border-radius:14px;box-shadow:0 20px 40px -16px rgba(15,23,42,.35);padding:6px;display:flex;flex-direction:column;font-family:var(--font-sans);color:var(--color-slate-900);box-sizing:border-box}
+  .pm-opt{display:flex;align-items:center;gap:10px;width:100%;min-height:40px;padding:8px 12px;border:0;border-radius:9px;background:none;text-align:left;font:600 14px var(--font-sans);color:var(--color-slate-900);cursor:pointer;text-decoration:none;box-sizing:border-box}
+  .pm-opt:hover,.pm-opt:focus-visible{background:var(--color-slate-100);color:var(--color-slate-900)}
+  .pm-opt.on{color:var(--color-brand-700);font-weight:800}.pm-opt.on::after{content:'✓';margin-left:auto}
+  .pm-opt.bad{color:var(--color-red-700)}
+  .pm-ph{padding:10px 12px 6px;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--color-slate-500);display:flex;justify-content:space-between;align-items:center;gap:10px}
+  .pm-ph button{border:0;background:none;color:var(--color-brand-700);font:700 12.5px var(--font-sans);cursor:pointer;text-transform:none;letter-spacing:0}
+  .pm-sep{height:1px;background:var(--color-slate-200);margin:6px 4px}
+  .pm-ni{display:flex;gap:10px;padding:10px 12px;border-radius:10px;color:var(--color-slate-900);font-size:13.5px;line-height:1.45;text-decoration:none}
+  .pm-ni:hover{background:var(--color-slate-50);color:var(--color-slate-900)}
+  .pm-ni i{width:9px;height:9px;border-radius:50%;margin-top:6px;flex:none}
+  .pm-ni.unread i{background:var(--color-brand-600)}
+  .pm-ni small{display:block;color:var(--color-slate-500);font-size:12px;margin-top:2px}
+  .pm-who{padding:10px 12px;display:flex;flex-direction:column;font-size:13px;color:var(--color-slate-600)}.pm-who b{font-size:14.5px;color:var(--color-slate-900)}
+
+  /* Admin top bar — assets/js/admin-shell.js (every admin page except the dashboard, which has it in its design) */
+  .pm-top{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:10px 28px;background:#fff;border-bottom:1px solid var(--color-slate-200);box-sizing:border-box}
+  .pm-search{flex:1 1 240px;max-width:420px;display:flex;align-items:center;gap:10px;height:42px;background:var(--color-slate-100);border-radius:12px;padding:0 12px;box-sizing:border-box}
+  .pm-search input{flex:1;min-width:0;border:0;outline:none;background:transparent;font:500 14px var(--font-sans);color:var(--color-slate-900)}
+  .pm-search kbd{font:600 11px var(--font-mono);color:var(--color-slate-600);background:#fff;border:1px solid var(--color-slate-300);border-radius:6px;padding:2px 6px}
+  .pm-tools{margin-left:auto;display:flex;align-items:center;gap:8px}
+  .pm-tb{height:42px;min-width:42px;padding:0 12px;border:1px solid var(--color-slate-300);border-radius:12px;background:#fff;font:700 14px var(--font-sans);color:var(--color-slate-900);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;position:relative;white-space:nowrap}
+  .pm-tb:hover{background:var(--color-slate-50)}
+  .pm-dot{position:absolute;top:-5px;right:-5px;min-width:18px;height:18px;border-radius:99px;background:var(--color-accent-500);color:var(--color-stone-900);font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;padding:0 4px;box-sizing:border-box;border:2px solid #fff}
+  .pm-av{background:var(--color-brand-100);color:var(--color-brand-700);border-color:var(--color-brand-100);font-weight:800;padding:0}
+  @media (max-width:600px){
+    .pm-top{padding:10px 16px}
+    .pm-search{max-width:none;flex-basis:100%}.pm-search kbd{display:none}
+    .pm-tools{margin-left:0;width:100%}.pm-tools .pm-hub{flex:1}
+  }
+  @media print{.pm-top,.pm-toasts,aside.pm-drawer{display:none !important}}
+
+  /* Empty / hidden helpers */
+  [hidden]{display:none !important}
+
+  /* from rider.css: Rider PWA shell for the 7 Rider*.html pages. */
+  [data-area="rider"]{background:var(--color-slate-100);-webkit-tap-highlight-color:transparent}
+  [data-area="rider"]>.rp-app{width:100% !important;height:100vh !important;height:100dvh !important;min-height:0 !important;
+    padding-top:env(safe-area-inset-top);padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
+  .rp-scroll{flex:1;min-height:0;overflow-y:auto !important;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+  .rp-scroll>*{flex-shrink:0}
+  .rp-safe-b{padding-bottom:max(16px, env(safe-area-inset-bottom)) !important}
+
+  @media (min-width:600px) and (min-height:560px){
+    [data-area="rider"]{min-height:100vh;display:flex;align-items:center;justify-content:center;
+      background:radial-gradient(circle at 30% 20%,var(--color-navy-soft) 0%,var(--color-navy) 45%,var(--color-night) 100%)}
+    [data-area="rider"]>.rp-app{width:390px !important;height:min(844px, calc(100vh - 48px)) !important;
+      border-radius:38px;border:10px solid var(--color-night);box-shadow:0 0 0 2px var(--color-slate-700),0 40px 80px -30px rgba(0,0,0,.8);padding:0}
+  }
+
+  /* Bottom tab bar */
+  .rp-nav{flex:none;min-height:76px;background:#fff;border-top:1px solid var(--color-slate-200);display:flex;align-items:flex-start;padding:0 8px env(safe-area-inset-bottom);position:relative;box-sizing:border-box}
+  .rp-nav .bn{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;font:700 11.5px var(--font-sans);color:var(--color-slate-600);padding:10px 0 8px;min-height:56px;background:none;border:0;cursor:pointer;text-decoration:none}
+  .rp-nav .bn.on{color:var(--color-brand-700)}
+  .rp-nav .bn:hover{color:var(--color-brand-900)}
+  .rp-scan{flex:none;width:64px;height:64px;margin-top:-22px;border-radius:20px;background:var(--color-accent-500);display:flex;align-items:center;justify-content:center;box-shadow:0 12px 24px -10px rgba(234,88,12,.7);border:4px solid #fff;box-sizing:content-box}
+
+  /* Generic rider bits */
+  .rp-btn{min-height:44px;border:0;border-radius:12px;font:700 14px var(--font-sans);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:7px;text-decoration:none;padding:0 14px}
+  .rp-btn:disabled,.rp-btn[aria-disabled="true"]{opacity:.45;cursor:not-allowed}
+  .rp-chips{display:flex;gap:8px;overflow-x:auto;padding:0 14px 12px;scrollbar-width:none}
+  .rp-chips::-webkit-scrollbar{display:none}
+  .rp-chip{flex:none;min-height:36px;padding:0 14px;border-radius:999px;border:1px solid var(--color-slate-300);background:#fff;font:700 13px var(--font-sans);color:var(--color-slate-700);cursor:pointer;position:relative}
+  .rp-chip::after{content:'';position:absolute;inset:-4px 0}
+  .rp-chip.on{background:var(--color-slate-900);border-color:var(--color-slate-900);color:#fff}
+  .rp-empty{text-align:center;color:var(--color-slate-600);font-size:14px;padding:32px 16px;background:#fff;border:1px dashed var(--color-slate-300);border-radius:18px}
+  .rp-empty b{display:block;color:var(--color-slate-900);font-size:15px;margin-bottom:4px}
+  .rp-field{display:flex;flex-direction:column;gap:6px;font-size:13.5px;font-weight:700;color:var(--color-slate-900)}
+  .rp-field input,.rp-field select,.rp-field textarea{min-height:46px;border:1px solid var(--color-slate-300);border-radius:12px;padding:0 12px;font:500 15px var(--font-sans);color:var(--color-slate-900);background:#fff;box-sizing:border-box;width:100%}
+  .rp-field textarea{padding:10px 12px;min-height:72px;resize:vertical}
+  .rp-offline{position:absolute;left:12px;right:12px;top:calc(8px + env(safe-area-inset-top));z-index:50;background:var(--color-orange-900);color:var(--color-accent-100);border-radius:12px;padding:8px 12px;font:700 12.5px var(--font-sans);text-align:center}
+
+  /* core.css modals/toasts sized for the phone */
+  [data-area="rider"] dialog.pm-modal{width:min(370px, calc(100vw - 24px))}
+  [data-area="rider"] .pm-modal-f{flex-wrap:wrap}
+  [data-area="rider"] .pm-modal-f .rp-btn{flex:1}
+  [data-area="rider"] .pm-toasts{left:50%;right:auto;transform:translateX(-50%);bottom:calc(100px + env(safe-area-inset-bottom));width:max-content;max-width:min(350px, calc(100vw - 32px))}
+  .rp-menu{display:flex;flex-direction:column;gap:4px;padding:10px !important}
+  .rp-menu a,.rp-menu button{min-height:48px;display:flex;align-items:center;gap:12px;padding:0 12px;border-radius:12px;border:0;background:none;font:700 15px var(--font-sans);color:var(--color-slate-900);text-decoration:none;cursor:pointer;text-align:left;width:100%}
+  .rp-menu a:hover,.rp-menu button:hover{background:var(--color-slate-100)}
+  .rp-menu .bad{color:var(--color-red-800)}
+  /* Rider pages only (rider.css used to load only there). */
+  @media (prefers-reduced-motion:reduce){[data-area="rider"],[data-area="rider"] *{animation:none !important;transition:none !important}}
+
+  /* Shared page components (Step 03): page <style> rules that are identical on every page that uses them.
+     Inventory and the variants still to decide: PLANCSS/components.md (`node tools/css-inventory.js`).
+     Pages keep their own copies until they are converted; those unlayered copies win until then. */
+  /* 32 pages */
+  .crumb { @apply text-13 font-semibold text-slate-600; }
+  /* ForgotPassword, Login, OtpVerify, ResetPassword */
+  .btn-primary { @apply flex items-center justify-center gap-2 w-full h-13.5 border-0 rounded-14 bg-brand-600 font-sans text-16 font-extrabold leading-[normal] text-white cursor-pointer; }
+  /* ForgotPassword, Login, OtpVerify, ResetPassword */
+  .btn-primary:hover { @apply bg-brand-700; }
+  /* ForgotPassword, Login, OtpVerify, ResetPassword */
+  .demo-note code { @apply font-mono text-12.5 font-semibold leading-[normal] text-slate-900; }
+  /* Coverage, MerchantParcels, MerchantPayouts, MerchantPickups */
+  .sr { @apply absolute w-px h-px overflow-hidden [clip:rect(0_0_0_0)]; }
+  /* 36 pages (Step 06). JS also finds cards by this class (closest('.card'), 'main .card'). Utilities on the same
+     element (the dark COD card, padding) beat it, as the inline styles did. */
+  .card { @apply border border-solid border-slate-200 rounded-18 bg-white; }
+
+  /* Auth pages (Step 04). Only states that JS toggles are components. A component's base and its states stay
+     together here: a utility for the base would beat the component's :focus / .on rule. */
+  /* Login, ForgotPassword, ResetPassword: input box with an icon or button (public.js: closest('.inp')).
+     Login and ForgotPassword add bg-white in the markup. */
+  .inp { @apply flex items-center gap-2.5 h-13 py-0 px-3.5 border border-solid border-slate-300 rounded-14; }
+  .inp input:focus-visible { @apply outline-none; }
+  .inp:focus-within { @apply border-brand-600 shadow-[0_0_0_4px_var(--color-brand-100)]; }
+  .inp.bad { @apply border-red-600; }  /* ResetPassword: passwords don't match */
+
+  /* Login: demo-account rows rendered by public.js (`.demo-note code` is above) */
+  .demo-note button { @apply p-0 border-0 bg-transparent font-sans text-13 font-bold leading-[normal] text-brand-700 underline cursor-pointer; }
+
+  /* OtpVerify: digit boxes. `.filled` and `.otp-err` (on the form) are set by public.js */
+  .otp-box { @apply box-border w-14.5 min-w-0 h-16 p-0 border-2 border-solid border-slate-300 rounded-14 bg-white text-center font-mono text-26 font-bold leading-[normal] text-slate-900; }
+  .otp-box.filled { @apply border-brand-600; }
+  .otp-box:focus { @apply outline-none border-brand-600 shadow-[0_0_0_4px_var(--color-brand-100)]; }
+  .otp-err .otp-box { @apply border-red-600 bg-red-50; }
+  .otp-box { @apply upto-420:w-auto upto-420:flex-[1_1_0] upto-420:h-14 upto-420:text-22; }
+
+  /* Register: step indicator; public.js sets `.cur` / `.done` on the <li> and fills `.c` */
+  .reg-step { @apply flex items-center gap-2.5 text-14 font-bold text-slate-600; }
+  .reg-step .c { @apply flex items-center justify-center flex-none box-border w-8 h-8 border border-solid border-slate-300 rounded-full bg-slate-100 text-14 font-extrabold text-slate-600; }
+  .reg-step.cur .c { @apply border-brand-600 bg-brand-600 text-white; }
+  .reg-step.cur { @apply text-slate-900; }
+  .reg-step.done .c { @apply border-green-600 bg-green-600 text-white; }
+  .reg-step.done { @apply text-green-800; }
+  .reg-step .t { @apply upto-520:hidden; }
+  .reg-step.cur .t { @apply upto-520:inline; }
+
+  /* Register: payout-method cards; public.js toggles `.on`. Until Step 04 these were `.pm-opt` and picked up the
+     shared popover option's look (no border until selected, ✓ after the selected one). That look is kept exactly. */
+  .pay-opt { @apply flex items-center gap-2.5 box-border w-full min-h-10 py-2 px-3 border-0 rounded-9 bg-transparent text-left font-sans text-14 font-semibold leading-[normal] text-slate-900 no-underline cursor-pointer; }
+  .pay-opt:hover { @apply bg-slate-100 text-slate-900; }
+  .pay-opt.on { @apply p-[15px] border-2 border-solid border-brand-600 font-extrabold text-brand-700; }
+  .pay-opt.on:not(:hover) { @apply bg-brand-50; }
+  .pay-opt.on::after { content: '✓'; @apply ml-auto; }
+  .pay-opt input { @apply mt-[3px] accent-brand-600; }
+  .pay-opt b { @apply block text-15; }
+  .pay-opt small { @apply block mt-0.5 text-12.5 text-slate-600; }
+  /* Public site (Step 05): index (Landing), Tracking, Coverage, Contact. Everything static is utilities;
+     these are the shared layout box and the widgets whose state JS toggles. */
+  /* Page container on the 4 public pages. Was `.wrap` (index_old has an unrelated `.wrap`). Spacing utilities on
+     the same element beat it, as the inline styles did. */
+  .pub-wrap { @apply box-border max-w-[1200px] my-0 mx-auto py-0 px-6; }
+
+  /* index: service picker in the delivery-charge calculator; public.js toggles `.on` */
+  .svc-opt { @apply flex flex-1 items-center gap-2.5 py-[13px] px-[15px] border border-solid border-slate-300 rounded-12 font-semibold cursor-pointer; }
+  .svc-opt.on { @apply py-3 px-3.5 border-2 border-solid border-brand-600 bg-brand-50 font-bold; }
+  .svc-opt input { @apply accent-brand-600; }
+
+  /* public.js behaviour on every public/auth page (was a <style> injected by the script, unlayered).
+     Scoped to the public area: the smooth scroll and scroll margin only ever loaded there. */
+  :root:has([data-area="public"]) { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion:reduce) { :root:has(> [data-area="public"]) { scroll-behavior: auto; } }
+  [data-area="public"] section[id] { scroll-margin-top: 16px; }
+  /* Mobile menu for the public headers (initPublicNav) */
+  .pub-burger { @apply hidden items-center justify-center flex-none w-11 h-11 p-0 border border-solid border-slate-300 rounded-12 bg-white text-slate-900 cursor-pointer; }
+  .pub-menu { @apply flex absolute top-[calc(100%+8px)] inset-x-4 z-50 flex-col p-2 border border-solid border-slate-200 rounded-18 bg-white font-sans shadow-[0_24px_48px_-20px_rgba(15,23,42,.35)]; }
+  .pub-menu a { @apply p-3.5 rounded-12 text-16 font-bold text-slate-900; }
+  .pub-menu a:hover, .pub-menu a.on { @apply bg-slate-100 text-brand-700; }
+  .pub-menu .pub-cta { @apply mt-1.5 bg-brand-600 text-center text-white; }
+  .pub-menu .pub-cta:hover { @apply bg-brand-700 text-white; }
+  @media (max-width:760px) { [data-area]:not([data-page="Landing"]) .pub-burger { display: inline-flex; } }
+  @media (min-width:761px) { [data-area]:not([data-page="Landing"]) .pub-menu { display: none !important; } }
+  @media (max-width:860px) { [data-page="Landing"] .pub-burger { display: inline-flex; } }
+  @media (min-width:861px) { [data-page="Landing"] .pub-menu { display: none !important; } }
+  @media (max-width:520px) { .pub-hide-xs { display: none !important; } }
+  .pm-err.js { display: block; }
+  .btn-busy { opacity: .75; pointer-events: none; }
+
+  /* Merchant panel (Step 06). The sidebar links keep the `nav` class (`.on` is set in the markup per page); the rest of
+     the shell is utilities, see PLANCSS/shell-merchant.html. Scoped to the merchant area: admin's `.nav` is the dark one. */
+  [data-area="merchant"] .nav { @apply flex items-center gap-3 h-11 py-0 px-3 rounded-11 text-14.5 font-semibold text-slate-700; }
+  [data-area="merchant"] .nav:hover { @apply bg-slate-100 text-slate-900; }
+  [data-area="merchant"] .nav.on { @apply bg-brand-50 font-bold text-brand-700; }
+  /* Only the Dashboard ever had this rule (open question for the user: keep it on every page or drop it). */
+  [data-page="MerchantDashboard"] .nav svg { @apply flex-none; }
+
+  /* CreateParcel: pickup and delivery-type cards; merchant.js toggles `.on` and fades the cards a zone can't use.
+     Was `.svc` (AdminPricing's `.svc` is an unrelated segment button). */
+  .cp-svc { @apply relative flex flex-col gap-1.5 p-4 border border-solid border-slate-300 rounded-14 cursor-pointer; }
+  .cp-svc.on { @apply p-[15px] border-2 border-solid border-brand-600 bg-brand-50; }
+  .cp-svc b { @apply text-15; }
+  .cp-svc span { @apply text-13 text-slate-600; }
+  .cp-svc:has(input:focus-visible) { outline: 3px solid var(--color-brand-300); outline-offset: 2px; }
+  .cp-svc input:disabled { cursor: not-allowed; }
+
+  /* merchant.js behaviour on every merchant page: header menus, runtime modals and their form controls, the bulk bar,
+     printing. Until Step 06 the script injected this as an unlayered <style>. Every merchant page is converted (Step 07),
+     so the base-layer link rule never beats these; an `<a class="m-btn">` that isn't .p/.o/.d adds `hover:text-brand-900`. */
+  .m-menu{position:absolute;right:0;top:calc(100% + 8px);z-index:60;width:min(320px,calc(100vw - 32px));background:#fff;border:1px solid var(--color-slate-200);border-radius:14px;box-shadow:0 24px 48px -20px rgba(15,23,42,.35);padding:6px;display:flex;flex-direction:column;font:500 14px var(--font-sans);color:var(--color-slate-900)}
+  .m-menu .mi{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;color:var(--color-slate-900);font:600 14px var(--font-sans);background:none;border:0;text-align:left;cursor:pointer;width:100%;box-sizing:border-box}
+  .m-menu .mi:hover{background:var(--color-slate-100);color:var(--color-slate-900)}
+  .m-menu .mh{display:flex;justify-content:space-between;align-items:center;padding:8px 12px 6px;font-weight:800}
+  .m-menu .mn{display:flex;gap:10px;padding:10px 12px;border-radius:10px;line-height:1.4;font-size:13.5px}
+  .m-menu .mn i{flex:none;width:8px;height:8px;margin-top:6px;border-radius:50%;background:var(--color-brand-600)}
+  .m-menu .mn.read i{background:var(--color-slate-300)}
+  .m-menu .mn small{display:block;color:var(--color-slate-500);font-size:12px;margin-top:2px}
+  .m-fld{display:flex;flex-direction:column;gap:7px;font-size:14px;font-weight:700;color:var(--color-slate-900)}
+  .m-fld small{font-weight:500;color:var(--color-slate-600);font-size:12.5px}
+  .m-in{height:46px;border:1px solid var(--color-slate-300);border-radius:12px;padding:0 14px;font:500 15px var(--font-sans);color:var(--color-slate-900);background:#fff;box-sizing:border-box;width:100%}
+  textarea.m-in{height:90px;padding:12px 14px;resize:vertical}
+  .m-btn{height:44px;padding:0 18px;border-radius:12px;border:1px solid var(--color-slate-300);background:#fff;color:var(--color-slate-900);font:700 14px var(--font-sans);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;white-space:nowrap;text-decoration:none}
+  .m-btn.p{background:var(--color-brand-600);border-color:var(--color-brand-600);color:#fff}
+  .m-btn.o{background:var(--color-accent-500);border-color:var(--color-accent-500);color:var(--color-stone-900);font-weight:800}
+  .m-btn.d{background:var(--color-red-600);border-color:var(--color-red-600);color:#fff}
+  .m-btn.sm{height:36px;padding:0 12px;font-size:13px;border-radius:10px}
+  .m-btn:disabled{opacity:.5;cursor:not-allowed}
+  .m-grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+  .m-chk{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;cursor:pointer}
+  .m-chk input{width:18px;height:18px;accent-color:var(--color-brand-600)}
+  .m-p{margin:0;font-size:14.5px;line-height:1.6;color:var(--color-slate-700)}
+  .m-sum{background:var(--color-slate-50);border-radius:12px;padding:12px 14px;font-size:14px;display:flex;flex-direction:column;gap:6px}
+  .m-sum div{display:flex;justify-content:space-between;gap:12px}
+  .m-sum span{color:var(--color-slate-600)}
+  .m-bulk{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 20px;background:var(--color-brand-50);border-top:1px solid var(--color-brand-100);font-size:14px}
+  .m-empty td{padding:40px 20px !important;text-align:center;color:var(--color-slate-600);white-space:normal !important}
+  .m-logout{display:flex;align-items:center;gap:12px;height:44px;padding:0 12px;margin-top:10px;border-radius:11px;border:0;background:none;color:var(--color-red-800);font:700 14.5px var(--font-sans);cursor:pointer;width:100%}
+  .m-logout:hover{background:var(--color-red-50)}
+  .m-sw{cursor:pointer}
+  #m-print{display:none}
+  [data-area="merchant"] [data-hook="table-scroll"],[data-area="merchant"] [data-hook="tab-strip"]{position:relative}
+  .m-label{width:100mm;border:2px solid var(--color-slate-900);border-radius:10px;padding:14px;margin:0 0 10mm;font:500 13px var(--font-sans);color:var(--color-slate-900);box-sizing:border-box;page-break-inside:avoid;display:flex;flex-direction:column;gap:8px}
+  .m-label .bar{height:44px;background:repeating-linear-gradient(90deg,var(--color-slate-900) 0 2px,#fff 2px 4px,var(--color-slate-900) 4px 7px,#fff 7px 8px,var(--color-slate-900) 8px 9px,#fff 9px 12px)}
+  /* (the script's copy of the closed-drawer rule is dropped: the core one above is identical) */
+  @media (max-width:640px){
+    [data-area="merchant"] main>header{padding:12px 16px !important;height:auto !important;min-height:64px !important;flex-wrap:wrap !important}
+    [data-area="merchant"] main>header+*{padding:16px !important}
+    .m-hide-sm{display:none !important}
+  }
+  @media print{
+    body.m-printing>*:not(#m-print){display:none !important}
+    body.m-printing #m-print{display:block !important}
+    body.m-printing{background:#fff}
+  }
+
+  /* Admin panel (Step 08). Dark sidebar: the links keep `nav` (`.on` is set in the markup per page) and the group
+     headings `navh`; the rest of the shell is utilities, see PLANCSS/shell-admin.html. These are the values 20 admin
+     pages use; AdminDashboard and AdminParcels add `h-10.5` (42px) to their links and `pt-4` to their headings (open
+     question: unify). Unconverted admin pages still have an identical unlayered copy, which wins there. */
+  [data-area="admin"] .nav { @apply flex items-center gap-3 h-10 py-0 px-3 rounded-10 text-14 font-semibold text-slate-300; }
+  [data-area="admin"] .nav:hover { @apply bg-slate-800 text-white; }
+  [data-area="admin"] .nav.on { @apply bg-brand-600 font-bold text-white; }
+  [data-area="admin"] .navh { @apply pt-3.5 px-3 pb-1.5 text-11 font-bold tracking-[.1em] uppercase text-slate-400; }
+
+  /* admin-ops.js behaviour on the 8 operations pages: dropdown menus, runtime dialogs and their form controls, the
+     scan/bag "flash", the chart tooltip, the bell dot, KPI filter buttons. Until Step 08 the script injected this as an
+     unlayered <style>. Its rules for static page elements (`main .card` / scroll wrappers `position:relative`,
+     `.btn:disabled`, the ≤600px header/content padding and `kbd`) became utilities on those elements. */
+  .ops-menu{position:absolute;z-index:900;min-width:220px;max-width:min(340px,calc(100vw - 16px));background:#fff;border:1px solid var(--color-slate-200);border-radius:14px;box-shadow:0 20px 40px -16px rgba(15,23,42,.35);padding:6px;font:600 14px var(--font-sans);color:var(--color-slate-900);max-height:min(440px,70vh);overflow:auto;box-sizing:border-box}
+  .ops-menu h3{margin:0;padding:8px 10px 6px;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--color-slate-500)}
+  .ops-mi{display:flex;align-items:center;gap:10px;width:100%;min-height:40px;padding:8px 10px;border:0;border-radius:9px;background:none;font:inherit;color:inherit;text-align:left;cursor:pointer}
+  .ops-mi:hover,.ops-mi:focus-visible{background:var(--color-slate-100);outline:none}
+  .ops-mi.on{color:var(--color-brand-700)}
+  .ops-mi .ck{margin-left:auto;color:var(--color-brand-600)}
+  .ops-mi small{display:block;font-weight:500;font-size:12.5px;color:var(--color-slate-500)}
+  .ops-mi .dot{width:8px;height:8px;border-radius:50%;background:var(--color-accent-500);flex:none}
+  .ops-mi .nodot{width:8px;flex:none}
+  .ops-sep{height:1px;background:var(--color-slate-200);margin:6px 4px}
+  .ops-f{display:flex;flex-direction:column;gap:7px;font-size:13.5px;font-weight:700}
+  .ops-in{height:44px;border:1px solid var(--color-slate-300);border-radius:11px;padding:0 12px;font:500 14.5px var(--font-sans);color:var(--color-slate-900);background:#fff;box-sizing:border-box;width:100%}
+  .ops-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+  .ops-btn{height:42px;padding:0 16px;border-radius:11px;font:700 14px var(--font-sans);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--color-slate-300);background:#fff;color:var(--color-slate-900);white-space:nowrap;text-decoration:none}
+  .ops-btn.p{background:var(--color-brand-600);border-color:var(--color-brand-600);color:#fff}
+  .ops-btn.d{background:var(--color-red-600);border-color:var(--color-red-600);color:#fff}
+  .ops-btn:disabled{opacity:.5;cursor:not-allowed}
+  .ops-btn.sm{height:34px;padding:0 12px;font-size:13px;border-radius:9px}
+  .ops-note{font-size:14px;color:var(--color-slate-600);margin:0;line-height:1.55}
+  .ops-note b{color:var(--color-slate-900)}
+  .ops-pick{display:flex;align-items:center;gap:12px;padding:12px;border:1px solid var(--color-slate-200);border-radius:12px;cursor:pointer;font-size:14px}
+  .ops-pick:has(input:checked){border-color:var(--color-brand-600);background:var(--color-brand-50)}
+  .ops-pick.off{opacity:.55;cursor:not-allowed}
+  .ops-pick input{width:18px;height:18px;accent-color:var(--color-brand-600);flex:none}
+  .ops-list{display:flex;flex-direction:column;gap:8px;max-height:46vh;overflow:auto}
+  .ops-empty{padding:28px 20px;text-align:center;color:var(--color-slate-600);font-size:14px;white-space:normal}
+  .ops-link{border:0;background:none;padding:0;font:600 13px var(--font-mono);color:var(--color-brand-700);cursor:pointer;text-decoration:underline}
+  .ops-flash{animation:ops-flash .6s ease-out}
+  .ops-tip{position:absolute;pointer-events:none;background:var(--color-slate-900);color:#fff;border-radius:10px;padding:8px 10px;font:600 12.5px/1.5 var(--font-sans);white-space:nowrap;z-index:5;transform:translate(-50%,calc(-100% - 10px))}
+  .ops-bell-dot{position:absolute;top:8px;right:9px;width:9px;height:9px;border-radius:50%;background:var(--color-accent-500);border:2px solid #fff}
+  .ops-kpi-btn{cursor:pointer;text-align:left;font:inherit;color:inherit}
+  .ops-kpi-btn[aria-pressed="true"]{box-shadow:0 0 0 2px var(--color-brand-600)}
+
+  /* admin-mgmt.js behaviour on the 14 people/finance/setup pages: pickers, runtime dialogs and their form controls, row
+     states, action buttons, the bulk bar, printing. Until Step 09 the script injected this as an unlayered <style id="mg-css">.
+     Its rules for static page elements (scroll wrappers and `main label` → relative, `.btn:disabled`, the ≤600px header and
+     content padding, header-actions wrap, hiding header buttons in print) became utilities on the converted pages; the Step 10
+     pages keep an unlayered copy in their own <style> block until they are converted. Its unused top-bar rules (`.mg-top`,
+     `.mg-search`, `.mg-tb` …, replaced by admin-shell.js `.pm-*`) and `.btn.mg-danger/.mg-ghost-d/.mg-ok` (the templates now
+     write full class strings) are dropped. */
+  .mg-pop{position:fixed;z-index:900;min-width:200px;max-width:calc(100vw - 16px);max-height:70vh;overflow:auto;background:#fff;border:1px solid var(--color-slate-200);border-radius:14px;box-shadow:0 20px 40px -16px rgba(15,23,42,.35);padding:6px;display:flex;flex-direction:column;font-family:var(--font-sans);color:var(--color-slate-900);box-sizing:border-box}
+  .mg-opt{display:flex;align-items:center;gap:10px;width:100%;min-height:40px;padding:8px 12px;border:0;border-radius:9px;background:none;text-align:left;font:600 14px var(--font-sans);color:var(--color-slate-900);cursor:pointer;text-decoration:none;box-sizing:border-box}
+  .mg-opt:hover,.mg-opt:focus-visible{background:var(--color-slate-100);color:var(--color-slate-900)}
+  .mg-opt.on{color:var(--color-brand-700);font-weight:800}.mg-opt.on::after{content:'✓';margin-left:auto}
+  .mg-opt.bad{color:var(--color-red-700)}
+  dialog.mg-wide{width:min(760px,calc(100vw - 32px))}
+  .mg-modal form{margin:0;display:flex;flex-direction:column;max-height:calc(100vh - 48px)}
+  .mg-modal .pm-modal-b{overflow:auto}
+  .mg-modal .pm-modal-f{flex-wrap:wrap}
+  .mg-p{margin:0;font-size:14.5px;line-height:1.6;color:var(--color-slate-700)}
+  .mg-f{display:flex;flex-direction:column;gap:7px;font-size:13.5px;font-weight:700;color:var(--color-slate-900)}
+  .mg-in{height:44px;border:1px solid var(--color-slate-300);border-radius:11px;padding:0 12px;font:500 14.5px var(--font-sans);color:var(--color-slate-900);background:#fff;box-sizing:border-box;width:100%}
+  .mg-ta{height:96px;padding:10px 12px;resize:vertical;line-height:1.5}
+  .mg-g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
+  .mg-check{display:flex;gap:10px;align-items:flex-start;font-size:14px;font-weight:600;line-height:1.45}
+  .mg-check input{width:18px;height:18px;accent-color:var(--color-brand-600);flex:none;margin-top:1px}
+  .mg-note{background:var(--color-slate-50);border-radius:12px;padding:12px 14px;font-size:13.5px;color:var(--color-slate-700);line-height:1.55}
+  .mg-warn{background:var(--color-accent-50);border:1px solid var(--color-orange-200);color:var(--color-orange-900);border-radius:12px;padding:12px 14px;font-size:13.5px;line-height:1.5}
+  .mg-bad{background:var(--color-red-50);border:1px solid var(--color-red-200);color:var(--color-red-800);border-radius:12px;padding:12px 14px;font-size:13.5px;line-height:1.5}
+  .mg-empty td{text-align:center;color:var(--color-slate-500);padding:28px 14px;white-space:normal}
+  .mg-sum{display:flex;justify-content:space-between;gap:12px;font-size:14px;padding:6px 0}.mg-sum span:first-child{color:var(--color-slate-600)}
+  .mg-docbig{height:300px;border-radius:14px;background:repeating-linear-gradient(45deg,var(--color-slate-100) 0 14px,var(--color-slate-50) 14px 28px);border:1px solid var(--color-slate-200);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--color-slate-600);font-weight:700;transition:transform .25s}
+  tr.mg-click{cursor:pointer}tr.mg-click:hover td{background:var(--color-slate-50)}
+  tr.mg-sel td{background:var(--color-brand-50)}
+  tr.mg-short td{background:var(--color-red-50)}
+  .mg-act{height:34px;padding:0 10px;border:1px solid var(--color-slate-300);border-radius:9px;background:#fff;font:700 12.5px var(--font-sans);color:var(--color-slate-900);cursor:pointer;white-space:nowrap}
+  .mg-act:hover{background:var(--color-slate-50)}.mg-act.d{color:var(--color-red-700);border-color:var(--color-red-200)}.mg-act.p{background:var(--color-brand-600);border-color:var(--color-brand-600);color:#fff}
+  .mg-bulk{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:10px 20px;background:var(--color-brand-50);border-top:1px solid var(--color-brand-200);border-bottom:1px solid var(--color-brand-200);font-size:14px}
+  .mg-bulk b{color:var(--color-brand-900)}
+  .mg-chip-on{background:var(--color-brand-600) !important;color:#fff !important}
+  #mg-print{display:none}
+  @media print{
+    body.mg-printing main>*:not(#mg-print){display:none !important}
+    body.mg-printing aside{display:none !important}
+    body.mg-printing #mg-print{display:block;padding:24px;font-family:var(--font-sans)}
+  }
+  /* AdminRiderDetails: the section tabs and the "Today's parcels" table the script adds (core.js initTabs toggles .on).
+     The page-wide a:hover used to beat .mg-tab's colour, so a tab that isn't .on turns brand-900 on hover. */
+  .mg-tab{display:flex;align-items:center;height:44px;font-weight:700;font-size:14px;color:var(--color-slate-600);border-bottom:2px solid transparent;white-space:nowrap}
+  .mg-tab:not(.on):hover{color:var(--color-brand-900)}
+  .mg-tab.on{color:var(--color-brand-700);border-bottom-color:var(--color-brand-600)}
+  #mg-pc td{padding:12px 14px;border-top:1px solid var(--color-slate-100);white-space:nowrap}
+  /* AdminStaff: role list (the script renders <button class="role" aria-pressed> and toggles .on) */
+  .role{display:flex;align-items:center;gap:10px;width:100%;padding:12px 14px;border:0;border-radius:12px;background:none;font:inherit;color:inherit;text-align:left;cursor:pointer}
+  .role.on{background:var(--color-brand-50);box-shadow:inset 3px 0 0 var(--color-brand-600)}
+  .role:hover{background:var(--color-slate-50)}
+  .role.on:hover{background:var(--color-brand-50)}
+  .role span{margin-left:auto;font-size:12px;font-weight:800;background:var(--color-slate-100);border-radius:99px;padding:2px 8px;color:var(--color-slate-700)}
+  /* AdminCod: All / Pending / Settled segment buttons (the script toggles .on) */
+  .seg-btn{height:34px;padding:0 12px;border:0;border-radius:8px;background:transparent;font:600 13px var(--font-sans);color:var(--color-slate-600);cursor:pointer}
+  .seg-btn.on{background:#fff;color:var(--color-slate-900);font-weight:700}
+}
+
+/* from core.css (keyframes stay outside the layer) */
+@keyframes pm-in{from{transform:translateY(8px);opacity:0}}
+/* admin-ops.js (.ops-flash), Step 08 */
+@keyframes ops-flash{from{box-shadow:0 0 0 6px rgba(37,99,235,.28)}}

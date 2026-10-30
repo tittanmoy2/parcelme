@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin – Scan Station · percelme</title>
+<meta name="theme-color" content="#10294A">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Fira+Code:wght@500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body data-area="admin" data-page="AdminScan">
+<div class="flex flex-wrap items-stretch min-h-full bg-slate-100 font-sans text-slate-900">
+  <aside class="flex flex-col flex-[1_1_252px] gap-px box-border max-w-full py-5 px-3.5 bg-slate-900 pm-drawer">
+    <div class="pm-logo-row"><a class="flex items-center gap-2.5 pt-1 pb-3.5 px-2.5" href="AdminDashboard.html"><svg width="29" height="34" viewBox="0 0 48 56" aria-hidden="true"><circle cx="26" cy="22" r="20" fill="#FFFFFF"></circle><rect x="6" y="22" width="11" height="32" rx="5.5" fill="#FFFFFF"></rect><rect class="fill-accent-600" x="17" y="13" width="18" height="18" rx="3"></rect><path d="M20 13h12a3 3 0 0 1 3 3v2H17v-2a3 3 0 0 1 3-3z" fill="#9A3412"></path><rect x="24" y="13" width="4" height="18" fill="#FED7AA" opacity=".7"></rect></svg><span class="text-24 font-extrabold tracking-[-0.045em] text-white">percel<span class="text-accent-400">me</span></span><span class="py-0.5 px-1.5 ml-auto border border-solid border-orange-900 rounded-6 text-10.5 font-extrabold tracking-[.08em] text-accent-300">ADMIN</span></a><button type="button" class="pm-menu-btn" aria-label="Open menu" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"></path></svg></button></div>
+    <nav class="flex flex-col gap-px" aria-label="Admin">
+      <a class="nav" href="AdminDashboard.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="7" height="9" x="3" y="3" rx="1"></rect><rect width="7" height="5" x="14" y="3" rx="1"></rect><rect width="7" height="9" x="14" y="12" rx="1"></rect><rect width="7" height="5" x="3" y="16" rx="1"></rect></svg>Overview</a>
+      <div class="navh">Operations</div>
+      <a class="nav" href="AdminParcels.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5"></path><path d="M12 22V12"></path></svg>Parcels</a>
+      <a class="nav" href="AdminPickups.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path><path d="M15 18H9"></path><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"></path><circle cx="17" cy="18" r="2"></circle><circle cx="7" cy="18" r="2"></circle></svg>Pickups</a>
+      <a class="nav" href="AdminAssign.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>Delivery assign</a>
+      <a class="nav" href="AdminHubs.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"></path><path d="M5 21V8l7-5 7 5v13"></path><path d="M9 21v-6h6v6"></path></svg>Hubs</a>
+      <a class="nav" href="AdminHubTransfer.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3 4 7l4 4"></path><path d="M4 7h16"></path><path d="m16 21 4-4-4-4"></path><path d="M20 17H4"></path></svg>Hub transfer</a>
+      <a class="nav on" href="AdminScan.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2"></path><path d="M17 3h2a2 2 0 0 1 2 2v2"></path><path d="M21 17v2a2 2 0 0 1-2 2h-2"></path><path d="M7 21H5a2 2 0 0 1-2-2v-2"></path><path d="M7 12h10"></path></svg>Scan station</a>
+      <div class="navh">People</div>
+      <a class="nav" href="AdminMerchants.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9h18l-2-5H5z"></path><path d="M5 9v11h14V9"></path><path d="M10 20v-6h4v6"></path></svg>Merchants</a>
+      <a class="nav" href="AdminRiders.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18.5" cy="17.5" r="3.5"></circle><circle cx="5.5" cy="17.5" r="3.5"></circle><circle cx="15" cy="5" r="1"></circle><path d="M12 17.5V14l-3-3 4-3 2 3h2"></path></svg>Riders</a>
+      <a class="nav" href="AdminStaff.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>Staff &amp; roles</a>
+      <div class="navh">Finance</div>
+      <a class="nav" href="AdminCod.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"></path><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"></path></svg>COD reconciliation</a>
+      <a class="nav" href="AdminPayouts.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="5" rx="2"></rect><line x1="2" x2="22" y1="10" y2="10"></line></svg>Merchant payouts</a>
+      <a class="nav" href="AdminReports.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"></path><path d="M18 17V9"></path><path d="M13 17V5"></path><path d="M8 17v-3"></path></svg>Reports</a>
+      <a class="nav" href="AdminTickets.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>Support tickets</a>
+      <div class="navh">Setup</div>
+      <a class="nav" href="AdminPricing.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2H2v10l9.29 9.29a1 1 0 0 0 1.41 0l8.59-8.59a1 1 0 0 0 0-1.41z"></path><circle cx="7" cy="7" r="1.5"></circle></svg>Pricing &amp; zones</a>
+      <a class="nav" href="AdminCoverage.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>Coverage areas</a>
+      <a class="nav" href="AdminSms.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2"></rect><path d="M12 18h.01"></path></svg>SMS templates</a>
+      <a class="nav" href="AdminBranding.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r="1.5"></circle><circle cx="17.5" cy="10.5" r="1.5"></circle><circle cx="8.5" cy="7.5" r="1.5"></circle><circle cx="6.5" cy="12.5" r="1.5"></circle><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path></svg>Branding</a>
+      <a class="nav" href="AdminLicense.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>License &amp; system</a>
+    </nav>
+  </aside>
+
+  <main class="flex flex-col flex-[999_1_560px] min-w-0">
+    <section class="pm-top" aria-label="Admin tools">
+    <form class="pm-search" role="search" data-real-submit="">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+      <label class="pm-sr" for="pm-q">Search parcels, merchants, riders</label>
+      <input id="pm-q" name="q" type="search" placeholder="Search parcel, merchant, rider…" autocomplete="off">
+      <kbd>Ctrl K</kbd>
+    </form>
+    <div class="pm-tools">
+      <button type="button" class="pm-tb pm-hub" aria-label="Hub: All hubs" aria-haspopup="true" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"></path><path d="M5 21V8l7-5 7 5v13"></path></svg>All hubs<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+      <button type="button" class="pm-tb pm-bell" aria-label="Notifications, 4 unread" aria-haspopup="true" aria-expanded="false"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#334155" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg><span class="pm-dot" aria-hidden="true">4</span></button>
+      <button type="button" class="pm-tb pm-av" aria-label="Account menu for Karim Ahmed" aria-haspopup="true" aria-expanded="false">KA</button>
+    </div></section><header class="flex flex-wrap items-center gap-3.5 box-border min-h-17.5 py-3 px-7 border-b border-b-slate-200 bg-white upto-600:px-4">
+      <div><div class="crumb">Operations · Mirpur hub · Counter 2</div><h1 class="m-0 text-22 font-extrabold tracking-[-0.02em]">Scan station</h1></div>
+      <div class="flex items-center gap-2 py-2 px-3.5 ml-auto rounded-full bg-green-100 text-13 font-bold text-green-800"><span class="w-2 h-2 rounded-[50%] bg-green-600"></span>Scanner connected</div>
+    </header>
+    <div class="flex flex-col gap-5 py-6 px-7 upto-600:px-4">
+      <div class="flex flex-wrap gap-3" role="radiogroup" aria-label="Scan mode">
+        <button class="mode on flex flex-col flex-[1_1_150px] gap-1 py-3.5 px-4 border border-solid border-slate-300 rounded-14 bg-white text-left font-sans text-14 font-bold leading-[normal] text-slate-900 cursor-pointer [&amp;.on]:py-[13px] [&amp;.on]:px-[15px] [&amp;.on]:border-2 [&amp;.on]:border-solid [&amp;.on]:border-brand-600 [&amp;.on]:bg-brand-50" type="button" role="radio" aria-checked="true" tabindex="0">Receive at hub<span class="text-12.5 font-medium text-slate-600">Mark parcels as arrived</span></button>
+        <button class="mode flex flex-col flex-[1_1_150px] gap-1 py-3.5 px-4 border border-solid border-slate-300 rounded-14 bg-white text-left font-sans text-14 font-bold leading-[normal] text-slate-900 cursor-pointer [&amp;.on]:py-[13px] [&amp;.on]:px-[15px] [&amp;.on]:border-2 [&amp;.on]:border-solid [&amp;.on]:border-brand-600 [&amp;.on]:bg-brand-50" type="button" role="radio" aria-checked="false" tabindex="-1">Hand to rider<span class="text-12.5 font-medium text-slate-600">Out for delivery</span></button>
+        <button class="mode flex flex-col flex-[1_1_150px] gap-1 py-3.5 px-4 border border-solid border-slate-300 rounded-14 bg-white text-left font-sans text-14 font-bold leading-[normal] text-slate-900 cursor-pointer [&amp;.on]:py-[13px] [&amp;.on]:px-[15px] [&amp;.on]:border-2 [&amp;.on]:border-solid [&amp;.on]:border-brand-600 [&amp;.on]:bg-brand-50" type="button" role="radio" aria-checked="false" tabindex="-1">Dispatch<span class="text-12.5 font-medium text-slate-600">Send to another hub</span></button>
+        <button class="mode flex flex-col flex-[1_1_150px] gap-1 py-3.5 px-4 border border-solid border-slate-300 rounded-14 bg-white text-left font-sans text-14 font-bold leading-[normal] text-slate-900 cursor-pointer [&amp;.on]:py-[13px] [&amp;.on]:px-[15px] [&amp;.on]:border-2 [&amp;.on]:border-solid [&amp;.on]:border-brand-600 [&amp;.on]:bg-brand-50" type="button" role="radio" aria-checked="false" tabindex="-1">Return<span class="text-12.5 font-medium text-slate-600">Back to merchant</span></button>
+      </div>
+      <div class="flex flex-wrap items-start gap-5">
+        <div class="flex flex-col flex-[999_1_480px] gap-5 min-w-0">
+          <label class="flex items-center gap-3.5 h-21 py-0 px-6 rounded-20 bg-slate-900">
+            <svg class="stroke-accent-300" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2"></path><path d="M17 3h2a2 2 0 0 1 2 2v2"></path><path d="M21 17v2a2 2 0 0 1-2 2h-2"></path><path d="M7 21H5a2 2 0 0 1-2-2v-2"></path><path d="M7 12h10"></path></svg>
+            <span class="absolute w-px h-px overflow-hidden [clip:rect(0_0_0_0)]">Scan barcode</span>
+            <input class="flex-1 min-w-0 border-0 bg-transparent font-mono text-22 font-semibold leading-[normal] text-white outline-none" placeholder="Scan barcode or type tracking ID…" autocomplete="off" enterkeyhint="done" autocapitalize="characters">
+          </label><p class="ops-note -mt-2 mb-0 mx-0 text-13">Demo: type or click <button type="button" class="ops-link" data-try="PM-2410-2K7H40">PM-2410-2K7H40</button>, <button type="button" class="ops-link" data-try="PM-2410-5N6P04">PM-2410-5N6P04</button>, <button type="button" class="ops-link" data-try="PM-2410-9X2B11">PM-2410-9X2B11</button> · try any other ID to see “not found”.</p>
+          <div class="card flex relative flex-wrap items-center gap-5.5 p-6.5 border-2 border-solid border-green-600 bg-green-50" role="status" aria-live="polite"><span class="flex items-center justify-center flex-none w-19 h-19 rounded-22 bg-green-600"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>
+        <div class="flex flex-col flex-1 gap-1.5 min-w-[min(240px,100%)]">
+          <span class="text-13 font-extrabold tracking-[.06em] text-green-800">RECEIVED AT MIRPUR HUB</span>
+          <span class="break-all font-mono text-26 font-semibold text-navy">PM-2410-9X2B11</span>
+          <span class="text-15 text-slate-700">Kamrul Islam · Senpara Parbata, Mirpur 10 · COD ৳ 640</span>
+        </div>
+        <div class="py-3.5 px-5 border border-solid rounded-16 bg-white text-center border-green-200"><div class="text-12 font-bold text-slate-600">Sort to shelf</div><div class="text-34 font-extrabold text-navy">M-10</div></div></div>
+          <div class="grid grid-cols-3 gap-3.5">
+            <div class="card relative p-4.5"><div class="text-12 font-semibold text-slate-600">This session</div><b class="text-30">214</b></div>
+            <div class="card relative p-4.5"><div class="text-12 font-semibold text-green-800">Matched</div><b class="text-30 text-green-800">211</b></div>
+            <div class="card relative p-4.5 border-red-200 bg-red-50"><div class="text-12 font-bold text-red-800">Problems</div><b class="text-30 text-red-800">3</b></div>
+          </div>
+        </div>
+        <aside class="card relative flex-[1_1_320px] min-w-0 p-5">
+          <div class="flex items-center justify-between gap-2.5 mb-1"><h2 class="m-0 text-17 font-extrabold">Scan log</h2><button class="h-8.5 py-0 px-3 border border-solid border-slate-300 rounded-9 bg-white font-sans text-13 font-bold leading-[normal] cursor-pointer" type="button" data-reset="">New session</button></div>
+          
+          
+          
+          
+          
+          
+        <div class="lg flex items-center gap-3 py-[11px] px-0 border-t border-t-slate-100 text-14"><span class="flex items-center justify-center flex-none w-6.5 h-6.5 rounded-[50%] text-13 font-extrabold bg-green-100 text-green-800" aria-hidden="true">✓</span><div class="flex-1 min-w-0"><span class="font-mono text-13 font-semibold text-brand-700">PM-2410-9X2B11</span><div class="text-12 text-slate-600">Shelf M-10</div></div><span class="text-12 text-slate-600">12:01:44</span></div><div class="lg flex items-center gap-3 py-[11px] px-0 border-t border-t-slate-100 text-14"><span class="flex items-center justify-center flex-none w-6.5 h-6.5 rounded-[50%] text-13 font-extrabold bg-green-100 text-green-800" aria-hidden="true">✓</span><div class="flex-1 min-w-0"><span class="font-mono text-13 font-semibold text-brand-700">PM-2410-8F3K29</span><div class="text-12 text-slate-600">Shelf M-10</div></div><span class="text-12 text-slate-600">12:01:39</span></div><div class="lg flex items-center gap-3 py-[11px] px-0 border-t border-t-slate-100 text-14"><span class="flex items-center justify-center flex-none w-6.5 h-6.5 rounded-[50%] text-13 font-extrabold bg-red-100 text-red-800" aria-hidden="true">!</span><div class="flex-1 min-w-0"><span class="font-mono text-13 font-semibold text-brand-700">PM-2410-5K2L38</span><div class="text-12 font-bold text-red-800">Wrong hub · send to Uttara</div></div><span class="text-12 text-slate-600">12:01:31</span></div><div class="lg flex items-center gap-3 py-[11px] px-0 border-t border-t-slate-100 text-14"><span class="flex items-center justify-center flex-none w-6.5 h-6.5 rounded-[50%] text-13 font-extrabold bg-green-100 text-green-800" aria-hidden="true">✓</span><div class="flex-1 min-w-0"><span class="font-mono text-13 font-semibold text-brand-700">PM-2410-3J8K72</span><div class="text-12 text-slate-600">Shelf P-12</div></div><span class="text-12 text-slate-600">12:01:25</span></div><div class="lg flex items-center gap-3 py-[11px] px-0 border-t border-t-slate-100 text-14"><span class="flex items-center justify-center flex-none w-6.5 h-6.5 rounded-[50%] text-13 font-extrabold bg-amber-100 text-amber-800" aria-hidden="true">?</span><div class="flex-1 min-w-0"><span class="font-mono text-13 font-semibold text-brand-700">PM-2410-0000XX</span><div class="text-12 font-bold text-amber-800">Not found in system</div></div><span class="text-12 text-slate-600">12:01:18</span></div><div class="lg flex items-center gap-3 py-[11px] px-0 border-t border-t-slate-100 text-14"><span class="flex items-center justify-center flex-none w-6.5 h-6.5 rounded-[50%] text-13 font-extrabold bg-green-100 text-green-800" aria-hidden="true">✓</span><div class="flex-1 min-w-0"><span class="font-mono text-13 font-semibold text-brand-700">PM-2410-4L1M93</span><div class="text-12 text-slate-600">Shelf K-03</div></div><span class="text-12 text-slate-600">12:01:12</span></div></aside>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="assets/core.js"></script>
+<script src="assets/js/admin-shell.js"></script>
+<script src="assets/js/admin-ops.js"></script>
+
+
+</body></html>

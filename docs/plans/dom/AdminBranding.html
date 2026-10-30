@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin – Branding Settings · percelme</title>
+<meta name="theme-color" content="#10294A">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Fira+Code:wght@500;600&amp;display=swap" rel="stylesheet">
+<style>
+/* Page-wide link rules: `a` sits in the base layer and `a:hover` skips the shared components, so the shared
+   components in app.css win over them as they did when core.css came after this block (PLANCSS Step 03). */
+body{margin:0}
+@layer base{a{color:#1D4ED8;text-decoration:none}}a:hover:not(:where(.pm-opt,.pm-ni,.pm-btn.p,.pm-btn.danger,.rp-nav .bn,.rp-menu a,.rp-chip.on)){color:#1E3A8A}
+.nav{display:flex;align-items:center;gap:12px;height:40px;padding:0 12px;border-radius:10px;color:#CBD5E1;font-weight:600;font-size:14px}
+.nav:hover{background:#1E293B;color:#fff}
+.nav.on{background:#2563EB;color:#fff;font-weight:700}
+.navh{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#94A3B8;padding:14px 12px 6px}
+.card{background:#fff;border:1px solid #E2E8F0;border-radius:18px}
+.btn{height:42px;padding:0 14px;border-radius:11px;font:700 14px 'Plus Jakarta Sans',sans-serif;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid #CBD5E1;background:#fff;color:#0F172A;white-space:nowrap}
+.btn.p{background:#2563EB;border-color:#2563EB;color:#fff}
+.h1{margin:0;font-size:22px;font-weight:800;letter-spacing:-0.02em}
+.h2{margin:0;font-size:17px;font-weight:800}
+.crumb{font-size:13px;color:#475569;font-weight:600}
+.sub{font-size:12px;color:#475569}
+.fld{display:flex;flex-direction:column;gap:7px;font-size:13.5px;font-weight:700}
+.in{height:44px;border:1px solid #CBD5E1;border-radius:11px;padding:0 12px;font:500 14.5px 'Plus Jakarta Sans',sans-serif;color:#0F172A;background:#fff;box-sizing:border-box;width:100%}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.clr{display:flex;align-items:center;gap:10px;border:1px solid #CBD5E1;border-radius:11px;padding:6px 10px;height:44px;box-sizing:border-box}
+.clr span.c{width:30px;height:30px;border-radius:8px;flex:none}
+.clr code{font:600 13px 'Fira Code',monospace}
+.up{height:110px;border:2px dashed #CBD5E1;border-radius:14px;display:flex;align-items:center;justify-content:center;gap:14px;background:#F8FAFC}
+.preset{width:36px;height:36px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 1px #CBD5E1;cursor:pointer}
+/* PLANCSS Step 09: admin-mgmt.js used to inject these rules for static elements (unlayered, after this block). The rest of its
+   <style> moved to tailwind.css; this copy keeps them beating the rules above. Step 10 converts them with the page. */
+main [data-hook="table-scroll"],main [data-hook="tab-strip"],main label:not(.pm-sr){position:relative}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.mg-empty td{text-align:center;color:#64748B;padding:28px 14px;white-space:normal}
+@media (max-width:600px){main>header{padding:12px 16px !important}main>header>[data-hook="header-actions"]{flex-wrap:wrap}main>header+div{padding:16px !important}}
+@media print{main>header button{display:none !important}}
+</style>
+<link rel="stylesheet" href="assets/app.css">
+<style>
+      .clr{cursor:pointer;position:relative}.clr:focus-within{outline:3px solid #93C5FD;outline-offset:2px}
+      .clr input[type=color]{position:absolute;inset:0;opacity:0;width:100%;height:100%;cursor:pointer;border:0;padding:0}
+      .preset{padding:0}.preset.on{box-shadow:0 0 0 2px #0F172A !important}
+      .mg-url{display:flex;align-items:center;gap:8px;padding:8px 12px;background:#F1F5F9;border-bottom:1px solid #E2E8F0;font:600 12px 'Fira Code',monospace;color:#334155}
+      .mg-url span{flex:1;background:#fff;border-radius:7px;padding:5px 10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+      .mg-logo-img{max-height:56px;max-width:140px;object-fit:contain}
+      .mg-dirty{font-size:12.5px;font-weight:800;color:#9A3412;background:#FFEDD5;border-radius:99px;padding:6px 12px;align-self:center}
+      .mg-panel{border-radius:16px;overflow:hidden;border:1px solid #E2E8F0;display:flex;height:150px;background:#F1F5F9}
+      .mg-panel nav{width:46%;padding:12px 10px;display:flex;flex-direction:column;gap:4px;color:#CBD5E1;font-size:11.5px;font-weight:600}
+      .mg-panel nav div{padding:6px 8px;border-radius:7px}
+      .mg-panel main{flex:1;padding:12px;display:flex;flex-direction:column;gap:8px}
+      .mg-panel main i{display:block;height:9px;border-radius:5px;background:#E2E8F0}
+    </style></head>
+<body data-area="admin" data-page="AdminBranding">
+<div style="font-family:'Plus Jakarta Sans',sans-serif;color:#0F172A;background:#F1F5F9;min-height:100%;display:flex;flex-wrap:wrap;align-items:stretch">
+  <aside style="flex:1 1 252px;max-width:100%;background:#0F172A;padding:20px 14px;box-sizing:border-box;display:flex;flex-direction:column;gap:1px" class="pm-drawer">
+    <div class="pm-logo-row"><a href="AdminDashboard.html" style="display:flex;align-items:center;gap:10px;padding:4px 10px 14px"><svg width="29" height="34" viewBox="0 0 48 56" aria-hidden="true"><circle cx="26" cy="22" r="20" fill="#FFFFFF"></circle><rect x="6" y="22" width="11" height="32" rx="5.5" fill="#FFFFFF"></rect><rect x="17" y="13" width="18" height="18" rx="3" fill="#EA580C"></rect><path d="M20 13h12a3 3 0 0 1 3 3v2H17v-2a3 3 0 0 1 3-3z" fill="#9A3412"></path><rect x="24" y="13" width="4" height="18" fill="#FED7AA" opacity=".7"></rect></svg><span style="font-size:24px;font-weight:800;letter-spacing:-0.045em;color:#fff">percel<span style="color:#FB923C">me</span></span><span style="margin-left:auto;font-size:10.5px;font-weight:800;letter-spacing:.08em;color:#FDBA74;border:1px solid #7C2D12;border-radius:6px;padding:2px 6px">ADMIN</span></a><button type="button" class="pm-menu-btn" aria-label="Open menu" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"></path></svg></button></div>
+    <nav aria-label="Admin" style="display:flex;flex-direction:column;gap:1px">
+      <a class="nav" href="AdminDashboard.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="7" height="9" x="3" y="3" rx="1"></rect><rect width="7" height="5" x="14" y="3" rx="1"></rect><rect width="7" height="9" x="14" y="12" rx="1"></rect><rect width="7" height="5" x="3" y="16" rx="1"></rect></svg>Overview</a>
+      <div class="navh">Operations</div>
+      <a class="nav" href="AdminParcels.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5"></path><path d="M12 22V12"></path></svg>Parcels</a>
+      <a class="nav" href="AdminPickups.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path><path d="M15 18H9"></path><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"></path><circle cx="17" cy="18" r="2"></circle><circle cx="7" cy="18" r="2"></circle></svg>Pickups</a>
+      <a class="nav" href="AdminAssign.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>Delivery assign</a>
+      <a class="nav" href="AdminHubs.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"></path><path d="M5 21V8l7-5 7 5v13"></path><path d="M9 21v-6h6v6"></path></svg>Hubs</a>
+      <a class="nav" href="AdminHubTransfer.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3 4 7l4 4"></path><path d="M4 7h16"></path><path d="m16 21 4-4-4-4"></path><path d="M20 17H4"></path></svg>Hub transfer</a>
+      <a class="nav" href="AdminScan.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2"></path><path d="M17 3h2a2 2 0 0 1 2 2v2"></path><path d="M21 17v2a2 2 0 0 1-2 2h-2"></path><path d="M7 21H5a2 2 0 0 1-2-2v-2"></path><path d="M7 12h10"></path></svg>Scan station</a>
+      <div class="navh">People</div>
+      <a class="nav" href="AdminMerchants.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9h18l-2-5H5z"></path><path d="M5 9v11h14V9"></path><path d="M10 20v-6h4v6"></path></svg>Merchants</a>
+      <a class="nav" href="AdminRiders.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18.5" cy="17.5" r="3.5"></circle><circle cx="5.5" cy="17.5" r="3.5"></circle><circle cx="15" cy="5" r="1"></circle><path d="M12 17.5V14l-3-3 4-3 2 3h2"></path></svg>Riders</a>
+      <a class="nav" href="AdminStaff.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>Staff &amp; roles</a>
+      <div class="navh">Finance</div>
+      <a class="nav" href="AdminCod.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"></path><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"></path></svg>COD reconciliation</a>
+      <a class="nav" href="AdminPayouts.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="5" rx="2"></rect><line x1="2" x2="22" y1="10" y2="10"></line></svg>Merchant payouts</a>
+      <a class="nav" href="AdminReports.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"></path><path d="M18 17V9"></path><path d="M13 17V5"></path><path d="M8 17v-3"></path></svg>Reports</a>
+      <a class="nav" href="AdminTickets.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>Support tickets</a>
+      <div class="navh">Setup</div>
+      <a class="nav" href="AdminPricing.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2H2v10l9.29 9.29a1 1 0 0 0 1.41 0l8.59-8.59a1 1 0 0 0 0-1.41z"></path><circle cx="7" cy="7" r="1.5"></circle></svg>Pricing &amp; zones</a>
+      <a class="nav" href="AdminCoverage.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>Coverage areas</a>
+      <a class="nav" href="AdminSms.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2"></rect><path d="M12 18h.01"></path></svg>SMS templates</a>
+      <a class="nav on" href="AdminBranding.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r="1.5"></circle><circle cx="17.5" cy="10.5" r="1.5"></circle><circle cx="8.5" cy="7.5" r="1.5"></circle><circle cx="6.5" cy="12.5" r="1.5"></circle><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path></svg>Branding</a>
+      <a class="nav" href="AdminLicense.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>License &amp; system</a>
+    </nav>
+  </aside>
+
+  <main style="flex:999 1 560px;min-width:0;display:flex;flex-direction:column">
+    <section class="pm-top" aria-label="Admin tools">
+    <form class="pm-search" role="search" data-real-submit="">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+      <label class="pm-sr" for="pm-q">Search parcels, merchants, riders</label>
+      <input id="pm-q" name="q" type="search" placeholder="Search parcel, merchant, rider…" autocomplete="off">
+      <kbd>Ctrl K</kbd>
+    </form>
+    <div class="pm-tools">
+      <button type="button" class="pm-tb pm-hub" aria-label="Hub: All hubs" aria-haspopup="true" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"></path><path d="M5 21V8l7-5 7 5v13"></path></svg>All hubs<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+      <button type="button" class="pm-tb pm-bell" aria-label="Notifications, 4 unread" aria-haspopup="true" aria-expanded="false"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#334155" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg><span class="pm-dot" aria-hidden="true">4</span></button>
+      <button type="button" class="pm-tb pm-av" aria-label="Account menu for Karim Ahmed" aria-haspopup="true" aria-expanded="false">KA</button>
+    </div></section><header style="min-height:70px;background:#fff;border-bottom:1px solid #E2E8F0;display:flex;flex-wrap:wrap;align-items:center;gap:14px;padding:12px 28px;box-sizing:border-box">
+      <div><div class="crumb">Setup</div><h1 class="h1">Branding</h1></div>
+      <div data-hook="header-actions" style="margin-left:auto;display:flex;gap:10px"><span class="mg-dirty" hidden="">Unpublished changes</span><button class="btn" type="button">Reset to default</button><button class="btn p" type="button">Publish changes</button></div>
+    </header>
+    <div style="padding:24px 28px;display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start">
+      <div style="flex:999 1 480px;min-width:0;display:flex;flex-direction:column;gap:20px">
+        <section class="card" style="padding:22px;display:flex;flex-direction:column;gap:16px">
+          <h2 class="h2">Company identity</h2>
+          <div class="grid">
+            <label class="fld">Company name<input class="in" value="[COMPANY NAME]" name="company"></label>
+            <label class="fld">Tagline<input class="in" value="Courier &amp; parcel delivery" name="tagline"></label>
+          </div>
+          <div class="grid">
+            <div class="fld">Logo (light background)<div class="up"><svg width="38" height="44" viewBox="0 0 48 56" aria-hidden="true"><circle cx="26" cy="22" r="20" fill="#10294A"></circle><rect x="6" y="22" width="11" height="32" rx="5.5" fill="#10294A"></rect><rect x="17" y="13" width="18" height="18" rx="3" fill="#EA580C"></rect></svg><span style="font-size:13px;font-weight:600;color:#475569">logo.svg · <a href="#" style="color:#1D4ED8">Replace</a></span><input type="file" accept="image/png,image/svg+xml,image/jpeg,image/webp" hidden=""></div></div>
+            <div class="fld">Logo (dark background)<div class="up" style="background:#0F172A;border-color:#334155"><svg width="38" height="44" viewBox="0 0 48 56" aria-hidden="true"><circle cx="26" cy="22" r="20" fill="#fff"></circle><rect x="6" y="22" width="11" height="32" rx="5.5" fill="#fff"></rect><rect x="17" y="13" width="18" height="18" rx="3" fill="#EA580C"></rect></svg><span style="font-size:13px;font-weight:600;color:#CBD5E1">logo-white.svg · <a href="#" style="color:#93C5FD">Replace</a></span><input type="file" accept="image/png,image/svg+xml,image/jpeg,image/webp" hidden=""></div></div>
+          </div>
+        </section>
+        <section class="card" style="padding:22px;display:flex;flex-direction:column;gap:16px">
+          <h2 class="h2">Colors</h2>
+          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><span class="sub" style="font-weight:700">Presets</span><span class="preset on" style="background: rgb(37, 99, 235);" data-hex="#2563EB" role="button" tabindex="0" aria-label="Use #2563EB as primary color"></span><span class="preset" style="background:#DC2626" data-hex="#DC2626" role="button" tabindex="0" aria-label="Use #DC2626 as primary color"></span><span class="preset" style="background:#16A34A" data-hex="#16A34A" role="button" tabindex="0" aria-label="Use #16A34A as primary color"></span><span class="preset" style="background:#7C3AED" data-hex="#7C3AED" role="button" tabindex="0" aria-label="Use #7C3AED as primary color"></span><span class="preset" style="background:#0D9488" data-hex="#0D9488" role="button" tabindex="0" aria-label="Use #0D9488 as primary color"></span><span class="preset" style="background:#10294A" data-hex="#10294A" role="button" tabindex="0" aria-label="Use #10294A as primary color"></span></div>
+          <div class="grid">
+            <div class="fld">Primary<span class="clr"><span class="c" style="background:#2563EB"></span><code>#2563EB</code><input type="color" aria-label="Primary color"></span></div>
+            <div class="fld">Accent / action<span class="clr"><span class="c" style="background:#F97316"></span><code>#F97316</code><input type="color" aria-label="Accent / action color"></span></div>
+            <div class="fld">Dark / sidebar<span class="clr"><span class="c" style="background:#10294A"></span><code>#10294A</code><input type="color" aria-label="Dark / sidebar color"></span></div>
+          </div>
+          <p style="margin:0;font-size:13px;color:#166534;font-weight:700">✓ Text contrast passes on all three colors</p>
+        </section>
+        <section class="card" style="padding:22px;display:flex;flex-direction:column;gap:16px">
+          <h2 class="h2">Domain &amp; contact</h2>
+          <div class="grid">
+            <label class="fld">Website domain<input class="in" value="[yourcourier].com.bd" name="domain"></label>
+            <label class="fld">Hotline<input class="in" value="[HOTLINE]" name="hotline"></label>
+            <label class="fld">Support email<input class="in" value="[SUPPORT EMAIL]" name="email"></label>
+            <label class="fld">Default language<select class="in"><option>বাংলা + English</option><option>বাংলা only</option><option>English only</option></select></label>
+          </div>
+        </section>
+      </div>
+      <aside style="flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:13px;font-weight:800;color:#475569;letter-spacing:.06em">LIVE PREVIEW</span>
+        <div style="border-radius:16px;overflow:hidden;border:1px solid #E2E8F0;background:#fff">
+          <div class="mg-url"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.6" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg><span data-url="">https://[yourcourier].com.bd</span></div><div style="height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;border-bottom:1px solid #E2E8F0"><span style="display:flex;align-items:center;gap:8px"><svg width="20" height="24" viewBox="0 0 48 56" aria-hidden="true"><circle cx="26" cy="22" r="20" fill="#10294A"></circle><rect x="6" y="22" width="11" height="32" rx="5.5" fill="#10294A"></rect><rect x="17" y="13" width="18" height="18" rx="3" fill="#EA580C"></rect></svg><b style="font-size:15px">[COMPANY NAME]</b></span><span style="height:32px;padding:0 12px;border-radius:9px;background:#2563EB;color:#fff;font-size:12px;font-weight:800;display:flex;align-items:center">Become a merchant</span></div>
+          <div style="padding: 22px 16px; background: rgb(233, 239, 253); display: flex; flex-direction: column; gap: 10px;"><b style="font-size:20px;line-height:1.2">Courier &amp; parcel delivery across all 64 districts</b><span style="display:flex;gap:6px"><span style="flex:1;height:36px;border-radius:9px;background:#fff;border:1px solid #CBD5E1"></span><span style="height:36px;padding:0 12px;border-radius:9px;background:#F97316;color:#1C1917;font-size:12px;font-weight:800;display:flex;align-items:center">Track</span></span></div>
+        </div>
+        <div><span style="font-size:12px;font-weight:800;color:#475569;letter-spacing:.06em;display:block;margin-bottom:8px">MERCHANT PANEL</span><div class="mg-panel"><nav style="background: rgb(16, 41, 74);"><div style="display:flex;align-items:center;gap:6px;padding:2px 4px 8px;color:#fff;font-weight:800;font-size:12.5px" data-pn=""><svg width="15" height="18" viewBox="0 0 48 56" aria-hidden="true"><circle cx="26" cy="22" r="20" fill="#fff"></circle><rect x="6" y="22" width="11" height="32" rx="5.5" fill="#fff"></rect><rect x="17" y="13" width="18" height="18" rx="3" fill="#EA580C"></rect></svg><span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">[COMPANY NAME]</span></div><div data-pa="" style="color: rgb(255, 255, 255); background: rgb(37, 99, 235);">Dashboard</div><div>Create parcel</div><div>My parcels</div><div>Payments</div></nav><main><b style="font-size:12.5px">Welcome back 👋</b><i style="width:80%"></i><i style="width:60%"></i><span data-pb="" style="align-self: flex-start; margin-top: auto; font-size: 11px; font-weight: 800; color: rgb(28, 25, 23); border-radius: 7px; padding: 6px 10px; background: rgb(249, 115, 22);">+ Create parcel</span></main></div></div><div style="border-radius:16px;border:2px dashed #CBD5E1;background:#fff;padding:14px;display:flex;flex-direction:column;gap:8px">
+          <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid rgb(16, 41, 74); padding-bottom: 8px;"><b style="font-size:14px">[COMPANY NAME]</b><span style="font-size: 11px; font-weight: 800; background: rgb(16, 41, 74); color: rgb(255, 255, 255); border-radius: 6px; padding: 3px 7px;">COD ৳1,850</span></div>
+          <div style="display:flex;gap:12px;align-items:center"><svg width="64" height="64" viewBox="0 0 21 21" role="img" aria-label="QR code placeholder"><rect width="21" height="21" fill="#fff"></rect><path fill="#0F172A" d="M0 0h7v7H0zM14 0h7v7h-7zM0 14h7v7H0z"></path><path fill="#fff" d="M1 1h5v5H1zM15 1h5v5h-5zM1 15h5v5H1z"></path><path fill="#0F172A" d="M2 2h3v3H2zM16 2h3v3h-3zM2 16h3v3H2zM8 0h2v2H8zM11 2h2v3h-2zM8 4h2v4H8zM9 9h3v2H9zM13 8h2v3h-2zM16 9h3v2h-3zM8 12h2v3H8zM11 13h3v2h-3zM15 12h2v3h-2zM18 13h3v2h-3zM9 16h2v3H9zM12 17h3v4h-3z"></path></svg><div style="font-size:12px;line-height:1.5"><b data-hook="label-id" style="font-family: &quot;Fira Code&quot;, monospace; color: rgb(37, 99, 235);">PM-2410-8F3K29</b><br><b>Nusrat Jahan</b> · 01712-345678<br>Mirpur 10, Dhaka</div></div>
+          <span class="sub" style="text-align:center">Parcel label (4×6 thermal)</span>
+        </div>
+      </aside>
+    </div>
+  </main>
+</div>
+<script src="assets/core.js"></script>
+<script src="assets/js/admin-shell.js"></script>
+<script src="assets/js/admin-mgmt.js"></script>
+
+
+</body></html>

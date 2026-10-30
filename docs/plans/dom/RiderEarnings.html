@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rider – Earnings &amp; Profile · percelme</title>
+<meta name="theme-color" content="#10294A">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="rider.webmanifest">
+<link rel="apple-touch-icon" href="assets/rider/icon-180.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Fira+Code:wght@500;600&amp;display=swap" rel="stylesheet">
+<style>
+/* Page-wide link rules: `a` sits in the base layer and `a:hover` skips the shared components, so the shared
+   components in app.css win over them as they did when core.css came after this block (PLANCSS Step 03). */
+body{margin:0}
+@layer base{a{color:#1D4ED8;text-decoration:none}}
+.row{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-top:1px solid #F1F5F9;font-size:14px}
+.row span{color:#475569}
+.pt{flex:1;height:40px;border:0;border-radius:10px;font:700 13px 'Plus Jakarta Sans',sans-serif;cursor:pointer;background:transparent;color:#475569}
+.pt.on{background:#fff;color:#0F172A;box-shadow:0 1px 3px rgba(15,23,42,.12)}
+.bar{flex:1;background:#1E3A5F;border-radius:5px;transition:height .25s}
+.bar.hi{background:#F97316}
+</style>
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body data-area="rider" data-page="RiderEarnings">
+<div class="rp-app" style="width:390px;height:844px;box-sizing:border-box;font-family:'Plus Jakarta Sans',sans-serif;color:#0F172A;background:#F1F5F9;display:flex;flex-direction:column;overflow:hidden;position:relative">
+  <div style="flex:none;background:#fff;padding:20px 16px 16px;display:flex;flex-direction:column;gap:14px;border-bottom:1px solid #E2E8F0">
+    <div style="display:flex;align-items:center;gap:12px">
+      <span style="width:52px;height:52px;border-radius:16px;background:#DBEAFE;color:#1D4ED8;font-weight:800;font-size:18px;display:flex;align-items:center;justify-content:center;flex:none" data-rp-initials="">RH</span>
+      <div style="flex:1;min-width:0"><h1 style="font-size:17px;margin:0;font-weight:800" data-rp-name="">Rakib Hasan</h1><div style="font-size:13px;color:#475569">RD-0142 · Mirpur hub · ★ 4.9</div></div>
+      <a href="Login.html" data-rp-logout="" style="font-size:13px;font-weight:800;color:#991B1B;min-height:44px;display:flex;align-items:center;padding:0 4px">Log out</a>
+    </div>
+    <div role="tablist" aria-label="Period" style="display:flex;gap:4px;background:#F1F5F9;border-radius:12px;padding:4px" id="ePeriods"><button class="pt" type="button" role="tab" aria-selected="false" data-p="today" tabindex="-1">Today</button><button class="pt" type="button" role="tab" aria-selected="false" data-p="week" tabindex="-1">This week</button><button class="pt on" type="button" role="tab" aria-selected="true" data-p="month" tabindex="0">October</button></div>
+  </div>
+  <div class="rp-scroll" style="padding:14px;display:flex;flex-direction:column;gap:12px" role="tabpanel" aria-live="polite">
+    <section style="background:#10294A;color:#fff;border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-size:13px;color:#CBD5E1;font-weight:600" id="eLbl">Earned in October</div>
+      <div style="font-size:38px;font-weight:800;letter-spacing:-0.03em" id="eAmt">৳ 19,610</div>
+      <div style="display:flex;align-items:flex-end;gap:6px;height:64px" id="eBars" aria-hidden="true"><div class="bar" style="height:50%"></div><div class="bar" style="height:72%"></div><div class="bar" style="height:60%"></div><div class="bar" style="height:84%"></div><div class="bar" style="height:66%"></div><div class="bar" style="height:90%"></div><div class="bar hi" style="height:100%"></div></div>
+      <div style="display:flex;justify-content:space-between;font-size:11.5px;color:#94A3B8" id="eAxis"><span>Week 1</span><span>Week 2</span><span>Today</span></div>
+    </section>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px">
+      <div style="background:#fff;border:1px solid #E2E8F0;border-radius:14px;padding:12px"><div style="font-size:11.5px;color:#475569;font-weight:600">Delivered</div><b style="font-size:20px" id="eDel">842</b></div>
+      <div style="background:#fff;border:1px solid #E2E8F0;border-radius:14px;padding:12px"><div style="font-size:11.5px;color:#475569;font-weight:600">Success</div><b style="font-size:20px;color:#166534" id="eSucc">95%</b></div>
+      <div style="background:#fff;border:1px solid #E2E8F0;border-radius:14px;padding:12px"><div style="font-size:11.5px;color:#475569;font-weight:600">On time</div><b style="font-size:20px" id="eOnTime">97%</b></div>
+    </div>
+    <section style="background:#fff;border:1px solid #E2E8F0;border-radius:18px;padding:14px 16px">
+      <h2 style="font-size:15px;margin:0;font-weight:800">Breakdown</h2>
+      <div id="eRows"><div class="row"><span>Base salary</span><b>৳ 12,000</b></div><div class="row"><span>842 deliveries × ৳ 7</span><b>৳ 5,894</b></div><div class="row"><span>18 pickups × ৳ 12</span><b>৳ 216</b></div><div class="row"><span>95%+ success bonus</span><b style="color:#166534">৳ 1,500</b></div><div class="row"><span>Cash short (Oct 7)</span><b style="color:#991B1B">− ৳ 200</b></div><div class="row" style="border-top:2px solid #0F172A"><b>Payable on Nov 1</b><b style="color:#1D4ED8;font-size:16px">৳ 19,410</b></div></div>
+    </section>
+    <div style="display:flex;align-items:center;gap:12px;background:#FFF7ED;border:1px solid #FED7AA;border-radius:16px;padding:12px 14px"><span style="font-size:22px;font-weight:800;color:#C2410C" id="eLeft">154</span><span style="font-size:13px;color:#7C2D12;line-height:1.4">more deliveries this month to unlock the <b>৳ 2,000 star bonus</b></span></div>
+    <section style="background:#fff;border:1px solid #E2E8F0;border-radius:18px;padding:6px" class="rp-menu" aria-label="Account">
+      <button type="button" data-rp-install="" hidden="">Install app on this phone</button>
+      <a href="tel:+8809600000000">Call hub support</a>
+      <button type="button" data-rp-reset="">Reset demo data</button>
+      <button type="button" class="bad" data-rp-logout="">Log out</button>
+    </section>
+  </div>
+  <nav class="rp-nav" aria-label="Rider">
+    <a class="bn" href="RiderToday.html"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7.5 4.27 9 5.15"></path><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="M12 22V12"></path></svg>Tasks</a>
+    <button class="bn" type="button" data-rp-route=""><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>Route</button>
+    <a class="rp-scan" href="RiderScanner.html" aria-label="Scan parcel"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1C1917" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2"></path><path d="M17 3h2a2 2 0 0 1 2 2v2"></path><path d="M21 17v2a2 2 0 0 1-2 2h-2"></path><path d="M7 21H5a2 2 0 0 1-2-2v-2"></path><path d="M7 12h10"></path></svg></a>
+    <a class="bn" href="RiderCash.html"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"></path><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"></path></svg>Cash</a>
+    <a class="bn on" href="RiderEarnings.html" aria-current="page"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"></path></svg>Profile</a>
+  </nav>
+<div class="rp-offline" role="status" hidden="">You're offline — changes are saved on this phone</div></div>
+<script src="assets/core.js"></script>
+<script src="assets/js/rider.js"></script>
+
+
+</body></html>

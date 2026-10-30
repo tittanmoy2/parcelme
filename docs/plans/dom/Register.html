@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Merchant Registration · percelme</title>
+<meta name="theme-color" content="#10294A">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Fira+Code:wght@500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body data-area="public" data-page="Register">
+<div class="flex flex-col items-center gap-7 box-border min-h-[1050px] pt-9 pb-15 px-5 bg-slate-100 font-sans text-slate-900">
+  <div class="flex flex-wrap items-center justify-between gap-4 w-full max-w-[880px]">
+    <a class="flex items-center gap-2.5" href="Landing.html"><svg width="29" height="34" viewBox="0 0 48 56" aria-hidden="true"><circle class="fill-navy" cx="26" cy="22" r="20"></circle><rect class="fill-navy" x="6" y="22" width="11" height="32" rx="5.5"></rect><rect class="fill-accent-600" x="17" y="13" width="18" height="18" rx="3"></rect><path d="M20 13h12a3 3 0 0 1 3 3v2H17v-2a3 3 0 0 1 3-3z" fill="#9A3412"></path><rect x="24" y="13" width="4" height="18" fill="#FED7AA" opacity=".7"></rect></svg><span class="text-24 font-extrabold tracking-[-0.045em] text-navy">percel<span class="text-accent-600">me</span></span></a>
+    <span class="text-14 text-slate-600">Already have an account? <a class="font-extrabold" href="Login.html">Log in</a></span>
+  </div>
+
+  <div class="w-full max-w-[880px] border border-solid border-slate-200 rounded-24 bg-white overflow-hidden shadow-[0_30px_60px_-36px_rgba(15,23,42,.35)]" data-hook="register-card">
+    <div class="flex flex-col gap-5.5 py-7 px-8 border-b border-b-slate-200 upto-520:py-5.5 upto-520:px-4.5">
+      <div><h1 class="m-0 text-28 font-extrabold tracking-[-0.025em]">Create your merchant account</h1><p class="mt-1.5 mb-0 mx-0 text-slate-600">Takes about 2 minutes. Your account is reviewed within 24 hours.</p></div>
+      <ol class="flex flex-wrap items-center gap-3 p-0 m-0 list-none" id="regSteps" aria-label="Sign-up progress">
+        <li class="reg-step cur" data-step-ind="1" aria-current="step"><span class="c">1</span><span class="t">Account</span></li>
+        <li aria-hidden="true" class="bar flex-1 h-0.5 min-w-7.5 bg-slate-200"></li>
+        <li class="reg-step" data-step-ind="2"><span class="c">2</span><span class="t">Business &amp; KYC</span></li>
+        <li aria-hidden="true" class="bar flex-1 h-0.5 min-w-7.5 bg-slate-200"></li>
+        <li class="reg-step" data-step-ind="3"><span class="c">3</span><span class="t">Payout method</span></li>
+      </ol>
+    </div>
+
+    <form class="flex flex-col gap-5 py-7 px-8 upto-520:py-5.5 upto-520:px-4.5" id="regForm" novalidate="">
+      <!-- Step 1: account -->
+      <div class="step flex flex-col gap-5" data-step="1">
+        <div class="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-4">
+          <label class="flex flex-col gap-[7px] text-14 font-bold">Your full name<input class="box-border w-full h-12 py-0 px-3.5 border border-solid border-slate-300 rounded-12 bg-white font-sans text-15 font-medium leading-[normal] text-slate-900 focus:outline-none focus:border-brand-600 focus:shadow-[0_0_0_4px_var(--color-brand-100)]" name="name" required="" autocomplete="name" value="Tanvir Ahmed"></label>
+          <label class="flex flex-col gap-[7px] text-14 font-bold">Mobile number<input class="box-border w-full h-12 py-0 px-3.5 border border-solid border-slate-300 rounded-12 bg-white font-sans text-15 font-medium leading-[normal] text-slate-900 focus:outline-none focus:border-brand-600 focus:shadow-[0_0_0_4px_var(--color-brand-100)]" name="phone" required="" data-rule="phone" inputmode="tel" autocomplete="tel-national" placeholder="01XXX-XXXXXX" value="01712-345678"></label>
+        </div>
+        <label class="flex flex-col gap-[7px] text-14 font-bold">Email <small class="text-12.5 font-medium text-slate-600">Optional · for invoices</small><input class="box-border w-full h-12 py-0 px-3.5 border border-solid border-slate-300 rounded-12 bg-white font-sans text-15 font-medium leading-[normal] text-slate-900 focus:outline-none focus:border-brand-600 focus:shadow-[0_0_0_4px_var(--color-brand-100)]" name="email" type="email" autocomplete="email" placeholder="you@shop.com"></label>
+        <div class="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-4">
+          <label class="flex flex-col gap-[7px] text-14 font-bold">Password<span class="relative block"><input class="box-border w-full h-12 py-0 pr-12 pl-3.5 border border-solid border-slate-300 rounded-12 bg-white font-sans text-15 font-medium leading-[normal] text-slate-900 focus:outline-none focus:border-brand-600 focus:shadow-[0_0_0_4px_var(--color-brand-100)]" id="regPw" name="password" type="password" required="" minlength="8" autocomplete="new-password" placeholder="At least 8 characters"><button type="button" class="flex absolute top-1/2 right-1.5 p-2 border-0 bg-transparent cursor-pointer [transform:translateY(-50%)]" data-pw-toggle="regPw regPw2" aria-label="Show password" aria-pressed="false"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg></button></span></label>
+          <label class="flex flex-col gap-[7px] text-14 font-bold">Confirm password<input class="box-border w-full h-12 py-0 px-3.5 border border-solid border-slate-300 rounded-12 bg-white font-sans text-15 font-medium leading-[normal] text-slate-900 focus:outline-none focus:border-brand-600 focus:shadow-[0_0_0_4px_var(--color-brand-100)]" id="regPw2" name="password2" type="password" required="" autocomplete="new-password"></label>
+        </div>
+        <p class="m-0 text-13 text-slate-600">We will send a 6-digit code to this number to verify it.</p>
+      </div>
+
+      <!-- Step 2: business & KYC (as designed) -->
+      <div class="step flex flex-col gap-5" data-step="2" hidden="">
+        <div class="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-4">
+          <label class="flex flex-col gap-[7px] text-14 font-bold">Business / shop name<input class="box-border w-full h-12 py-0 px-3.5 border border-solid border-slate-300 rounded-12 bg-white font-sans text-15 font-medium leading-[normal] text-slate-900 focus:outline-none focus:border-brand-600 focus:shadow-[0_0_0_4px_var(--color-brand-100)]" name="business" required="" value="Shopnil Fashion"></label>
+          <label class="flex flex-col gap-[7px] text-14 font-bold">Business type<select class="box-border w-full h-12 py-0 px-3.5 border border-solid border-slate-300 rounded-12 bg-white font-sans text-15 font-medium leading-[normal] text-slate-900 focus:outline-none focus:border-brand-600 focus:shadow-[0_0_0_4px_var(--color-brand-100)]" name="type"><option>Online shop (Facebook / website)</option><option>Physical shop</option><option>Wholesaler / distributor</option><option>Personal / individual</option></select></label>
+        </div>
+        <div class="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-4">
+          <label class="flex flex-col gap-[7px] text-14 font-bold">Product category<select class="box-border w-full h-12 py-0 px-3.5 border border-solid border-slate-300 rounded-12 bg-white font-sans text-15 font-medium leading-[normal] text-slate-900 focus:outline-none focus:border-brand-600 focus:shadow-[0_0_0_4px_var(--color-brand-100)]" name="category"><option>Clothing &amp; fashion</option><option>Electronics &amp; gadgets</option><option>Beauty &amp; cosmetics</option><option>Books &amp; stationery</option><option>Food &amp; grocery</option><option>Home &amp; lifestyle</option><option>Other</option></select></label>
+          <label class="flex flex-col gap-[7px] text-14 font-bold">Average parcels per day<select class="box-border w-full h-12 py-0 px-3.5 border border-solid border-slate-300 rounded-12 bg-white font-sans text-15 font-medium leading-[normal] text-slate-900 focus:outline-none focus:border-brand-600 focus:shadow-[0_0_0_4px_var(--color-brand-100)]" name="volume"><option>1 – 20</option><option selected="">20 – 50</option><option>50 – 200</option><option>200+</option></select></label>
+        </div>
+        <div class="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-4">
+          <label class="flex flex-col gap-[7px] text-14 font-bold">Facebook page / website <small class="text-12.5 font-medium text-slate-600">Optional</small><input class="box-border w-full h-12 py-0 px-3.5 border border-solid border-slate-300 rounded-12 bg-white font-sans text-15 font-medium leading-[normal] text-slate-900 focus:outline-none focus:border-brand-600 focus:shadow-[0_0_0_4px_var(--color-brand-100)]" name="web" placeholder="facebook.com/yourshop"></label>
+          <label class="flex flex-col gap-[7px] text-14 font-bold">Pickup area<select class="box-border w-full h-12 py-0 px-3.5 border border-solid border-slate-300 rounded-12 bg-white font-sans text-15 font-medium leading-[normal] text-slate-900 focus:outline-none focus:border-brand-600 focus:shadow-[0_0_0_4px_var(--color-brand-100)]" name="area"><option>Gulshan 1, Dhaka</option><option>Gulshan 2, Dhaka</option><option>Banani, Dhaka</option><option>Dhanmondi, Dhaka</option><option>Mirpur 10, Dhaka</option><option>Uttara, Dhaka</option><option>Mohammadpur, Dhaka</option><option>Agrabad, Chattogram</option><option>Zindabazar, Sylhet</option></select></label>
+        </div>
+        <label class="flex flex-col gap-[7px] text-14 font-bold">Pickup address<input class="box-border w-full h-12 py-0 px-3.5 border border-solid border-slate-300 rounded-12 bg-white font-sans text-15 font-medium leading-[normal] text-slate-900 focus:outline-none focus:border-brand-600 focus:shadow-[0_0_0_4px_var(--color-brand-100)]" name="address" required="" value="House 12, Road 5, Gulshan 1, Dhaka"></label>
+
+        <div class="flex flex-col gap-3">
+          <div class="text-15 font-extrabold">Verification documents</div>
+          <div class="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-4">
+            <label class="up relative flex items-center gap-3.5 p-4.5 border-2 border-dashed border-slate-300 rounded-14 bg-slate-50 cursor-pointer focus-within:outline-3 focus-within:outline-solid focus-within:outline-offset-2 focus-within:outline-brand-300 [&amp;.done]:border-green-300 [&amp;.done]:bg-green-50 done" data-upload="nid"><span class="ui flex items-center justify-center flex-none w-11 h-11 rounded-12 bg-green-100"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><span class="flex-1 min-w-0 text-14"><b>NID (front &amp; back)</b><span class="us block wrap-anywhere text-12.5 text-green-800">nid-tanvir.jpg · uploaded</span></span><input class="absolute w-px h-px opacity-0" type="file" accept="image/*,.pdf"></label>
+            <label class="up relative flex items-center gap-3.5 p-4.5 border-2 border-dashed border-slate-300 rounded-14 bg-slate-50 cursor-pointer focus-within:outline-3 focus-within:outline-solid focus-within:outline-offset-2 focus-within:outline-brand-300 [&amp;.done]:border-green-300 [&amp;.done]:bg-green-50" data-upload="license"><span class="ui flex items-center justify-center flex-none w-11 h-11 rounded-12 bg-brand-50"><svg class="stroke-brand-600" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" x2="12" y1="3" y2="15"></line></svg></span><span class="flex-1 min-w-0 text-14"><b>Trade license</b><span class="us block wrap-anywhere text-12.5 text-slate-600">Optional · JPG, PNG or PDF, max 5 MB</span></span><input class="absolute w-px h-px opacity-0" type="file" accept="image/*,.pdf"></label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3: payout -->
+      <div class="step flex flex-col gap-5" data-step="3" hidden="">
+        <fieldset class="flex flex-col gap-3 min-w-0 p-0 m-0 border-0">
+          <legend class="p-0 mb-3 text-15 font-extrabold">How should we pay your COD?</legend>
+          <div class="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-4" id="payMethods">
+            <label class="pay-opt on"><input type="radio" name="method" value="bKash" checked=""><span><b>bKash</b><small>Personal or merchant wallet</small></span></label>
+            <label class="pay-opt"><input type="radio" name="method" value="Nagad"><span><b>Nagad</b><small>Personal or merchant wallet</small></span></label>
+            <label class="pay-opt"><input type="radio" name="method" value="Bank"><span><b>Bank transfer</b><small>Any bank in Bangladesh</small></span></label>
+          </div>
+        </fieldset>
+        <div class="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-4" id="walletFields">
+          <label class="flex flex-col gap-[7px] text-14 font-bold">Wallet number<input class="box-border w-full h-12 py-0 px-3.5 border border-solid border-slate-300 rounded-12 bg-white font-sans text-15 font-medium leading-[normal] text-slate-900 focus:outline-none focus:border-brand-600 focus:shadow-[0_0_0_4px_var(--color-brand-100)]" name="wallet" required="" data-rule="phone" inputmode="tel" value="01712-345678"></label>
+          <label class="flex flex-col gap-[7px] text-14 font-bold">Account holder name<input class="box-border w-full h-12 py-0 px-3.5 border border-solid border-slate-300 rounded-12 bg-white font-sans text-15 font-medium leading-[normal] text-slate-900 focus:outline-none focus:border-brand-600 focus:shadow-[0_0_0_4px_var(--color-brand-100)]" name="holder" required="" value="Tanvir Ahmed"></label>
+        </div>
+        <div class="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-4" id="bankFields" hidden="">
+          <label class="flex flex-col gap-[7px] text-14 font-bold">Bank name<select class="box-border w-full h-12 py-0 px-3.5 border border-solid border-slate-300 rounded-12 bg-white font-sans text-15 font-medium leading-[normal] text-slate-900 focus:outline-none focus:border-brand-600 focus:shadow-[0_0_0_4px_var(--color-brand-100)]" name="bank"><option>BRAC Bank</option><option>Dutch-Bangla Bank</option><option>City Bank</option><option>Eastern Bank</option><option>Islami Bank</option></select></label>
+          <label class="flex flex-col gap-[7px] text-14 font-bold">Account number<input class="box-border w-full h-12 py-0 px-3.5 border border-solid border-slate-300 rounded-12 bg-white font-sans text-15 font-medium leading-[normal] text-slate-900 focus:outline-none focus:border-brand-600 focus:shadow-[0_0_0_4px_var(--color-brand-100)]" name="acc" inputmode="numeric" placeholder="13-17 digits"></label>
+          <label class="flex flex-col gap-[7px] text-14 font-bold">Branch<input class="box-border w-full h-12 py-0 px-3.5 border border-solid border-slate-300 rounded-12 bg-white font-sans text-15 font-medium leading-[normal] text-slate-900 focus:outline-none focus:border-brand-600 focus:shadow-[0_0_0_4px_var(--color-brand-100)]" name="branch" placeholder="e.g. Gulshan"></label>
+          <label class="flex flex-col gap-[7px] text-14 font-bold">Account name<input class="box-border w-full h-12 py-0 px-3.5 border border-solid border-slate-300 rounded-12 bg-white font-sans text-15 font-medium leading-[normal] text-slate-900 focus:outline-none focus:border-brand-600 focus:shadow-[0_0_0_4px_var(--color-brand-100)]" name="accName" value="Tanvir Ahmed"></label>
+        </div>
+        <label class="flex flex-col gap-[7px] text-14 font-bold">Payout schedule<select class="box-border w-full h-12 py-0 px-3.5 border border-solid border-slate-300 rounded-12 bg-white font-sans text-15 font-medium leading-[normal] text-slate-900 focus:outline-none focus:border-brand-600 focus:shadow-[0_0_0_4px_var(--color-brand-100)]" name="schedule"><option>Daily (next working day)</option><option>Twice a week</option><option>Weekly</option></select></label>
+        <div class="flex flex-col gap-1.5">
+          <label class="flex items-start gap-2.5 text-14 leading-[1.5] text-slate-700 cursor-pointer"><input class="flex-none w-4.5 h-4.5 mt-0.5 accent-brand-600" type="checkbox" id="regTerms">I agree to the <a class="font-bold" href="#">Terms of Service</a> and <a class="font-bold" href="#">Privacy Policy</a>.</label>
+          <span class="terms-err text-12.5 font-semibold text-red-700" id="termsErr" hidden="">Please accept the terms to continue</span>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap justify-between gap-3 pt-1.5 mt-1 border-t border-t-slate-200">
+        <button type="button" class="inline-flex items-center justify-center gap-2 h-12.5 mt-4 py-0 px-5.5 border border-solid rounded-14 font-sans text-15 leading-[normal] cursor-pointer border-slate-300 bg-white font-bold text-slate-900" id="regBack">Cancel</button>
+        <button type="submit" class="inline-flex items-center justify-center gap-2 h-12.5 mt-4 py-0 px-5.5 border border-solid rounded-14 font-sans text-15 leading-[normal] cursor-pointer border-brand-600 bg-brand-600 font-extrabold text-white hover:bg-brand-700" id="regNext"><span>Continue</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></button>
+      </div>
+    </form>
+  </div>
+</div>
+<script src="assets/core.js"></script>
+<script src="assets/js/public.js"></script>
+
+
+</body></html>

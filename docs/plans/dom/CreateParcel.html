@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Merchant – Create Parcel · percelme</title>
+<meta name="theme-color" content="#10294A">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Fira+Code:wght@500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body data-area="merchant" data-page="CreateParcel">
+<div class="flex flex-wrap items-stretch min-h-full bg-slate-50 font-sans text-slate-900">
+
+  <aside class="flex flex-col flex-[1_1_248px] gap-1 box-border max-w-full py-5 px-3.5 border-r border-r-slate-200 bg-white pm-drawer">
+    <div class="pm-logo-row"><a class="flex items-center gap-2.5 pt-1 pb-4.5 px-2.5 text-slate-900" href="Landing.html">
+      <svg width="29" height="34" viewBox="0 0 48 56" aria-hidden="true"><circle class="fill-navy" cx="26" cy="22" r="20"></circle><rect class="fill-navy" x="6" y="22" width="11" height="32" rx="5.5"></rect><rect class="fill-accent-600" x="17" y="13" width="18" height="18" rx="3"></rect><path d="M20 13h12a3 3 0 0 1 3 3v2H17v-2a3 3 0 0 1 3-3z" fill="#9A3412"></path><rect x="24" y="13" width="4" height="18" fill="#FED7AA" opacity=".7"></rect></svg>
+      <span class="text-24 font-extrabold tracking-[-0.045em] text-navy">percel<span class="text-accent-600">me</span></span>
+    </a><button type="button" class="pm-menu-btn" aria-label="Open menu" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"></path></svg></button></div>
+    <nav class="flex flex-col gap-0.5" aria-label="Merchant">
+      <a class="nav" href="MerchantDashboard.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="7" height="9" x="3" y="3" rx="1"></rect><rect width="7" height="5" x="14" y="3" rx="1"></rect><rect width="7" height="9" x="14" y="12" rx="1"></rect><rect width="7" height="5" x="3" y="16" rx="1"></rect></svg>Dashboard</a>
+      <div class="pt-3.5 pb-1.5 px-3 uppercase text-11.5 font-bold tracking-[.09em] text-slate-500">Shipments</div>
+      <a class="nav on" href="CreateParcel.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M8 12h8M12 8v8"></path></svg>Create parcel</a>
+      <a class="nav" href="MerchantParcels.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7.5 4.27 9 5.15"></path><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5"></path><path d="M12 22V12"></path></svg>All parcels</a>
+      <a class="nav" href="MerchantBulkUpload.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" x2="12" y1="3" y2="15"></line></svg>Bulk upload</a>
+      <a class="nav" href="MerchantPickups.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path><path d="M15 18H9"></path><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"></path><circle cx="17" cy="18" r="2"></circle><circle cx="7" cy="18" r="2"></circle></svg>Pickup requests</a>
+      <a class="nav" href="MerchantPickupLocations.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>Pickup locations</a>
+      <a class="nav" href="MerchantReturns.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>Returns</a>
+      <div class="pt-3.5 pb-1.5 px-3 uppercase text-11.5 font-bold tracking-[.09em] text-slate-500">Finance</div>
+      <a class="nav" href="MerchantPayments.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"></path><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"></path></svg>Payments &amp; COD</a>
+      <a class="nav" href="MerchantPayouts.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="5" rx="2"></rect><line x1="2" x2="22" y1="10" y2="10"></line></svg>Payout history</a>
+      <a class="nav" href="MerchantInvoices.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg>Invoices</a>
+      <div class="pt-3.5 pb-1.5 px-3 uppercase text-11.5 font-bold tracking-[.09em] text-slate-500">Tools</div>
+      <a class="nav" href="MerchantFraudCheck.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg>Fraud check</a>
+      <a class="nav" href="MerchantApi.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>API &amp; webhooks</a>
+      <a class="nav" href="MerchantSettings.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 7h-9"></path><path d="M14 17H5"></path><circle cx="17" cy="17" r="3"></circle><circle cx="7" cy="7" r="3"></circle></svg>Settings</a>
+    </nav>
+  <button type="button" class="m-logout"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" x2="9" y1="12" y2="12"></line></svg>Log out</button></aside>
+
+  <main class="flex flex-col flex-[999_1_560px] min-w-0">
+    <header class="flex flex-wrap items-center gap-3.5 box-border min-h-18 py-3 px-7 border-b border-b-slate-200 bg-white">
+      <div>
+        <div class="text-13 font-semibold text-slate-600"><a class="text-slate-600" href="MerchantDashboard.html">Dashboard</a> / Create parcel</div>
+        <h1 class="mt-0.5 mb-0 mx-0 text-22 font-extrabold tracking-[-0.02em]">Create a new parcel</h1>
+      </div>
+      <div class="flex gap-2.5 ml-auto">
+        <a class="flex items-center gap-2 h-11 py-0 px-4 border border-solid border-slate-300 rounded-12 text-14 font-bold text-slate-900" href="MerchantBulkUpload.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" x2="12" y1="3" y2="15"></line></svg>Bulk upload instead</a>
+      </div>
+    </header>
+
+    <form class="flex flex-wrap items-start gap-5.5 p-7" id="cp-form" data-validate="" novalidate="">
+      <div class="flex flex-col flex-[999_1_520px] gap-5 min-w-0">
+
+        <section class="card flex flex-col gap-4.5 p-6" aria-labelledby="cp-h1">
+          <div class="flex items-center gap-3"><span class="flex items-center justify-center w-7.5 h-7.5 rounded-9 bg-brand-600 text-14 font-extrabold text-white">1</span><h2 class="m-0 text-18 font-extrabold" id="cp-h1">Pickup from</h2></div>
+          <div class="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-3" id="cp-pickups" role="radiogroup" aria-labelledby="cp-h1"><label class="cp-svc on"><span class="flex items-center justify-between"><b>Gulshan 1 shop</b><input type="radio" name="pickup" value="Gulshan 1 shop" checked="" class="w-4.5 h-4.5 accent-brand-600"></span><span>House 12, Road 5, Gulshan 1, Dhaka 1212</span></label><label class="cp-svc"><span class="flex items-center justify-between"><b>Tejgaon warehouse</b><input type="radio" name="pickup" value="Tejgaon warehouse" class="w-4.5 h-4.5 accent-brand-600"></span><span>Plot 44, Tejgaon I/A, Dhaka 1208</span></label></div>
+        </section>
+
+        <section class="card flex flex-col gap-4.5 p-6" aria-labelledby="cp-h2">
+          <div class="flex items-center gap-3"><span class="flex items-center justify-center w-7.5 h-7.5 rounded-9 bg-brand-600 text-14 font-extrabold text-white">2</span><h2 class="m-0 text-18 font-extrabold" id="cp-h2">Customer details</h2></div>
+          <div class="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-4">
+            <label class="flex flex-col gap-[7px] text-14 font-bold text-slate-900">Phone number<input class="box-border w-full h-12 py-0 px-3.5 border border-solid border-slate-300 rounded-12 bg-white font-sans text-15 font-medium leading-[normal] text-slate-900" name="phone" type="tel" inputmode="tel" autocomplete="off" required="" data-rule="phone" placeholder="01XXX-XXXXXX" value="01712-345678"></label>
+            <label class="flex flex-col gap-[7px] text-14 font-bold text-slate-900">Customer name<input class="box-border w-full h-12 py-0 px-3.5 border border-solid border-slate-300 rounded-12 bg-white font-sans text-15 font-medium leading-[normal] text-slate-900" name="name" required="" autocomplete="off" value="Nusrat Jahan"></label>
+          </div>
+          <div class="flex items-center gap-3.5 py-3.5 px-4 border border-solid rounded-14 bg-green-50 border-green-200 text-green-800" id="cp-trust" role="status" aria-live="polite">
+            <svg class="flex-none" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg>
+            <div class="flex-1 text-14" data-t=""><b class="text-green-800">Trusted customer</b><span class="text-slate-700"> · 14 of 15 parcels received (93%) across the network</span></div>
+            <a class="text-13 font-extrabold" href="MerchantFraudCheck.html?phone=01712345678">Details</a>
+          </div>
+          <label class="flex flex-col gap-[7px] text-14 font-bold text-slate-900">Full address<textarea class="box-border w-full h-21 py-3 px-3.5 border border-solid border-slate-300 rounded-12 bg-white font-sans text-15 font-medium leading-[normal] text-slate-900 resize-y" name="address" required="">House 22, Road 3, Block C</textarea></label>
+          <div class="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-4">
+            <label class="flex flex-col gap-[7px] text-14 font-bold text-slate-900">District<select class="box-border w-full h-12 py-0 px-3.5 border border-solid border-slate-300 rounded-12 bg-white font-sans text-15 font-medium leading-[normal] text-slate-900" name="district"><option value="Dhaka">Dhaka</option><option value="Gazipur">Gazipur</option><option value="Narayanganj">Narayanganj</option><option value="Chattogram">Chattogram</option><option value="Sylhet">Sylhet</option><option value="Rajshahi">Rajshahi</option><option value="Khulna">Khulna</option><option value="Rangpur">Rangpur</option></select></label>
+            <label class="flex flex-col gap-[7px] text-14 font-bold text-slate-900">Thana / Area<select class="box-border w-full h-12 py-0 px-3.5 border border-solid border-slate-300 rounded-12 bg-white font-sans text-15 font-medium leading-[normal] text-slate-900" name="thana"><option value="Mirpur">Mirpur</option><option value="Gulshan">Gulshan</option><option value="Dhanmondi">Dhanmondi</option><option value="Uttara">Uttara</option><option value="Mohammadpur">Mohammadpur</option><option value="Badda">Badda</option></select></label>
+            <label class="flex flex-col gap-[7px] text-14 font-bold text-slate-900">Area<select class="box-border w-full h-12 py-0 px-3.5 border border-solid border-slate-300 rounded-12 bg-white font-sans text-15 font-medium leading-[normal] text-slate-900" name="area" required=""><option value="Mirpur 1">Mirpur 1</option><option value="Mirpur 2">Mirpur 2</option><option value="Mirpur 10">Mirpur 10</option><option value="Mirpur 12">Mirpur 12</option></select></label>
+          </div>
+        </section>
+
+        <section class="card flex flex-col gap-4.5 p-6" aria-labelledby="cp-h3">
+          <div class="flex items-center gap-3"><span class="flex items-center justify-center w-7.5 h-7.5 rounded-9 bg-brand-600 text-14 font-extrabold text-white">3</span><h2 class="m-0 text-18 font-extrabold" id="cp-h3">Parcel &amp; payment</h2></div>
+          <div class="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-4">
+            <label class="flex flex-col gap-[7px] text-14 font-bold text-slate-900">Cash to collect (৳)<input class="box-border w-full h-12 py-0 px-3.5 border border-solid border-slate-300 rounded-12 bg-white font-sans text-15 font-medium leading-[normal] text-slate-900" name="cod" inputmode="numeric" value="1,850"><small class="text-12.5 font-medium text-slate-600">Enter 0 for prepaid orders</small></label>
+            <label class="flex flex-col gap-[7px] text-14 font-bold text-slate-900">Weight (kg)<select class="box-border w-full h-12 py-0 px-3.5 border border-solid border-slate-300 rounded-12 bg-white font-sans text-15 font-medium leading-[normal] text-slate-900" name="weight"><option value="0">Up to 1 kg</option><option value="1">1 – 2 kg</option><option value="2">2 – 3 kg</option><option value="3">3 – 5 kg</option><option value="4">5 – 10 kg</option></select></label>
+            <label class="flex flex-col gap-[7px] text-14 font-bold text-slate-900">Your invoice / order ID<input class="box-border w-full h-12 py-0 px-3.5 border border-solid border-slate-300 rounded-12 bg-white font-sans text-15 font-medium leading-[normal] text-slate-900" name="inv" value="SF-10294"></label>
+          </div>
+          <div class="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-4">
+            <label class="flex flex-col gap-[7px] text-14 font-bold text-slate-900">Item description<input class="box-border w-full h-12 py-0 px-3.5 border border-solid border-slate-300 rounded-12 bg-white font-sans text-15 font-medium leading-[normal] text-slate-900" name="item" required="" value="2 × Cotton kurti (M)"></label>
+            <label class="flex flex-col gap-[7px] text-14 font-bold text-slate-900">Category<select class="box-border w-full h-12 py-0 px-3.5 border border-solid border-slate-300 rounded-12 bg-white font-sans text-15 font-medium leading-[normal] text-slate-900" name="category"><option value="Clothing &amp; fashion">Clothing &amp; fashion</option><option value="Electronics &amp; gadgets">Electronics &amp; gadgets</option><option value="Beauty &amp; health">Beauty &amp; health</option><option value="Home &amp; kitchen">Home &amp; kitchen</option><option value="Books &amp; stationery">Books &amp; stationery</option><option value="Food (dry)">Food (dry)</option><option value="Documents">Documents</option><option value="Other">Other</option></select></label>
+          </div>
+          <label class="flex flex-col gap-[7px] text-14 font-bold text-slate-900">Note for rider <small class="text-12.5 font-medium text-slate-600">Optional</small><input class="box-border w-full h-12 py-0 px-3.5 border border-solid border-slate-300 rounded-12 bg-white font-sans text-15 font-medium leading-[normal] text-slate-900" name="note" placeholder="e.g. Call before delivery, fragile"></label>
+        </section>
+
+        <section class="card flex flex-col gap-4.5 p-6" aria-labelledby="cp-h4">
+          <div class="flex items-center gap-3"><span class="flex items-center justify-center w-7.5 h-7.5 rounded-9 bg-brand-600 text-14 font-extrabold text-white">4</span><h2 class="m-0 text-18 font-extrabold" id="cp-h4">Delivery type</h2></div>
+          <div class="grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-3" role="radiogroup" aria-labelledby="cp-h4">
+            <label class="cp-svc on"><span class="flex items-center justify-between"><b>Regular</b><input class="w-4.5 h-4.5 accent-brand-600" type="radio" name="service" value="Regular" checked=""></span><span>24–48 hours</span><b class="mt-1 text-20" data-price="">৳ 60</b></label>
+            <label class="cp-svc"><span class="flex items-center justify-between"><b>Express</b><input class="w-4.5 h-4.5 accent-brand-600" type="radio" name="service" value="Express"></span><span>Next morning</span><b class="mt-1 text-20" data-price="">৳ 90</b></label>
+            <label class="cp-svc"><span class="flex items-center justify-between"><b>Same day</b><input class="w-4.5 h-4.5 accent-brand-600" type="radio" name="service" value="Same day"></span><span>Book before 12 PM</span><b class="mt-1 text-20" data-price="">৳ 130</b></label>
+          </div>
+        </section>
+      </div>
+
+      <aside class="flex flex-col flex-[1_1_320px] gap-4 min-w-0">
+        <div class="card flex flex-col gap-1.5 p-5.5" aria-live="polite">
+          <h2 class="mt-0 mb-1.5 mx-0 text-18 font-extrabold">Charge summary</h2>
+          <div class="flex justify-between py-2.5 px-0 text-14"><span class="text-slate-600" id="cp-del-label">Delivery (Inside Dhaka)</span><b id="cp-del">৳ 60.00</b></div>
+          <div class="flex justify-between py-2.5 px-0 text-14"><span class="text-slate-600">Weight charge</span><b id="cp-wt">৳ 0.00</b></div>
+          <div class="flex justify-between py-2.5 px-0 text-14"><span class="text-slate-600">COD charge (1%)</span><b id="cp-cod">৳ 18.50</b></div>
+          <div class="flex justify-between pt-3.5 pb-2.5 px-0 [border-top:1px_dashed_var(--color-slate-300)] text-16"><span class="font-bold text-slate-900">Total charge</span><b class="text-20" id="cp-total">৳ 78.50</b></div>
+          <div class="flex items-center justify-between py-3.5 px-4 mt-2 rounded-14 bg-brand-50"><span class="text-14 font-bold text-brand-800">You will receive</span><b class="text-22 text-brand-900" id="cp-recv">৳ 1,771.50</b></div>
+        </div>
+        <div class="card flex flex-col gap-3 p-5.5">
+          <h2 class="m-0 text-16 font-extrabold">Label preview</h2>
+          <div class="flex items-center gap-3.5 p-4 border-2 border-dashed border-slate-300 rounded-14">
+            <svg class="flex-none" width="72" height="72" viewBox="0 0 21 21" role="img" aria-label="QR code placeholder"><rect width="21" height="21" fill="#fff"></rect><path fill="#0F172A" d="M0 0h7v7H0zM14 0h7v7h-7zM0 14h7v7H0z"></path><path fill="#fff" d="M1 1h5v5H1zM15 1h5v5h-5zM1 15h5v5H1z"></path><path fill="#0F172A" d="M2 2h3v3H2zM16 2h3v3h-3zM2 16h3v3H2zM8 0h2v2H8zM11 2h2v3h-2zM8 4h2v4H8zM9 9h3v2H9zM13 8h2v3h-2zM16 9h3v2h-3zM8 12h2v3H8zM11 13h3v2h-3zM15 12h2v3h-2zM18 13h3v2h-3zM9 16h2v3H9zM12 17h3v4h-3zM16 16h2v2h-2zM18 19h3v2h-3zM0 9h2v3H0zM3 8h3v2H3z"></path></svg>
+            <div class="flex flex-col gap-1 min-w-0 text-13"><span class="font-mono font-semibold text-brand-700">PM-2410-•••••</span><b id="cp-lp-name">Nusrat Jahan</b><span class="text-slate-600" id="cp-lp-area">Mirpur 10, Dhaka</span><b class="text-orange-800" id="cp-lp-cod">COD ৳ 1,850</b></div>
+          </div>
+        </div>
+        <button class="flex items-center justify-center gap-2.5 h-13.5 border-0 rounded-14 bg-brand-600 font-sans text-16 font-extrabold leading-[normal] text-white cursor-pointer" type="button" id="cp-create"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect width="12" height="8" x="6" y="14"></rect></svg>Create &amp; print label</button>
+        <div class="grid grid-cols-2 gap-2.5">
+          <button class="h-12 border border-solid border-slate-300 rounded-12 bg-white font-sans text-14 font-bold leading-[normal] text-slate-900 cursor-pointer" type="button" id="cp-another">Create &amp; add another</button>
+          <button class="h-12 border border-solid border-slate-300 rounded-12 bg-white font-sans text-14 font-bold leading-[normal] text-slate-900 cursor-pointer" type="button" id="cp-draft">Save draft</button>
+        </div>
+      </aside>
+    </form>
+  </main>
+</div>
+<script src="assets/core.js"></script>
+<script src="assets/js/merchant.js"></script>
+
+
+</body></html>

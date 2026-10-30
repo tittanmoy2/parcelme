@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rider – Scanner · percelme</title>
+<meta name="theme-color" content="#0B1220">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="rider.webmanifest">
+<link rel="apple-touch-icon" href="assets/rider/icon-180.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Fira+Code:wght@500;600&amp;display=swap" rel="stylesheet">
+<style>
+/* Page-wide link rules: `a` sits in the base layer and `a:hover` skips the shared components, so the shared
+   components in app.css win over them as they did when core.css came after this block (PLANCSS Step 03). */
+body{margin:0}
+@layer base{a{color:#93C5FD;text-decoration:none}}
+.cn{position:absolute;width:44px;height:44px;border-color:#F97316;border-style:solid;z-index:2}
+.sc{display:flex;align-items:center;gap:10px;padding:10px 0;border-top:1px solid #E2E8F0;font-size:13.5px}
+.vf{position:relative;width:min(250px,30dvh);height:min(250px,30dvh);flex:none}
+.vf #sIllu{inset:16% !important}
+.vf #sIllu svg{width:70%;height:70%}
+.vf video{position:absolute;inset:6px;width:calc(100% - 12px);height:calc(100% - 12px);object-fit:cover;border-radius:14px;background:#000}
+.laser{position:absolute;left:14px;right:14px;top:58%;height:3px;background:#F97316;border-radius:3px;box-shadow:0 0 18px 4px rgba(249,115,22,.6);z-index:3}
+.scanning .laser{animation:laser 1.8s ease-in-out infinite alternate}
+@keyframes laser{from{top:12%}to{top:86%}}
+.pill{display:flex;align-items:center;gap:10px;border-radius:14px;padding:10px 14px;max-width:calc(100% - 32px);box-sizing:border-box}
+.pill.ok{background:#14532D;border:1px solid #16A34A}
+.pill.bad{background:#7F1D1D;border:1px solid #DC2626}
+.pill .dot{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none;font-weight:800}
+.pill.ok .dot{background:#16A34A}.pill.bad .dot{background:#DC2626}
+.manual{display:flex;gap:8px;width:calc(100% - 32px);max-width:330px}
+.manual input{flex:1;min-width:0;height:48px;border:1px solid #475569;border-radius:12px;background:#0F172A;color:#fff;padding:0 12px;font:600 15px 'Fira Code',monospace;text-transform:uppercase}
+.manual input::placeholder{color:#94A3B8;text-transform:none;font-family:'Plus Jakarta Sans',sans-serif}
+.ghost{min-height:44px;border:1px solid rgba(255,255,255,.25);border-radius:12px;background:rgba(255,255,255,.08);color:#fff;font:700 13.5px 'Plus Jakarta Sans',sans-serif;padding:0 14px;cursor:pointer}
+.hdr-btn{width:44px;height:44px;border:0;border-radius:14px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;cursor:pointer;color:#fff;flex:none}
+.hdr-btn[aria-pressed="true"]{background:#F97316;color:#1C1917}
+</style>
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body data-area="rider" data-page="RiderScanner">
+<div class="rp-app" style="width:390px;height:844px;box-sizing:border-box;font-family:'Plus Jakarta Sans',sans-serif;color:#fff;background:#0B1220;display:flex;flex-direction:column;overflow:hidden;position:relative">
+  <header style="display:flex;align-items:center;gap:10px;padding:16px;flex:none">
+    <a href="RiderToday.html" id="sClose" aria-label="Close scanner" class="hdr-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"></path></svg></a>
+    <div style="flex:1;text-align:center;min-width:0"><b style="font-size:16px" id="sTitle">Scan parcel</b><div style="font-size:12.5px;color:#CBD5E1" id="sSub">Scan a parcel label to open it</div></div>
+    <button type="button" id="sTorch" class="hdr-btn" aria-label="Flashlight" aria-pressed="false"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6c0 2-2 2-2 4v10a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V10c0-2-2-2-2-4V2h12z"></path><line x1="6" x2="18" y1="6" y2="6"></line><line x1="12" x2="12" y1="12" y2="12"></line></svg></button>
+  </header>
+
+  <div class="rp-scroll" style="display:flex;flex-direction:column;align-items:center;justify-content:safe center;gap:14px;position:relative;background:radial-gradient(circle at 50% 40%,#1E293B 0%,#0B1220 70%);padding:12px 0">
+    <div class="vf" id="sVf">
+      <span class="cn" style="left:0;top:0;border-width:5px 0 0 5px;border-radius:18px 0 0 0"></span>
+      <span class="cn" style="right:0;top:0;border-width:5px 5px 0 0;border-radius:0 18px 0 0"></span>
+      <span class="cn" style="left:0;bottom:0;border-width:0 0 5px 5px;border-radius:0 0 0 18px"></span>
+      <span class="cn" style="right:0;bottom:0;border-width:0 5px 5px 0;border-radius:0 0 18px 0"></span>
+      <video id="sVideo" playsinline="" muted="" hidden="" aria-label="Camera preview"></video>
+      <div id="sIllu" style="position:absolute;inset:40px;background:#fff;border-radius:10px;display:flex;align-items:center;justify-content:center;opacity:.92">
+        <svg width="130" height="130" viewBox="0 0 21 21" aria-hidden="true"><rect width="21" height="21" fill="#fff"></rect><path fill="#0F172A" d="M0 0h7v7H0zM14 0h7v7h-7zM0 14h7v7H0z"></path><path fill="#fff" d="M1 1h5v5H1zM15 1h5v5h-5zM1 15h5v5H1z"></path><path fill="#0F172A" d="M2 2h3v3H2zM16 2h3v3h-3zM2 16h3v3H2zM8 0h2v2H8zM11 2h2v3h-2zM8 4h2v4H8zM9 9h3v2H9zM13 8h2v3h-2zM16 9h3v2h-3zM8 12h2v3H8zM11 13h3v2h-3zM15 12h2v3h-2zM18 13h3v2h-3zM9 16h2v3H9zM12 17h3v4h-3zM16 16h2v2h-2zM18 19h3v2h-3z"></path></svg>
+      </div>
+      <div class="laser"></div>
+    </div>
+    <div id="sCamMsg" role="status" style="font-size:13px;color:#CBD5E1;text-align:center;max-width:300px;line-height:1.45">Live scanning isn't supported in this browser (use Chrome on Android). Type the tracking ID below.</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center">
+      <button type="button" class="ghost" id="sCamBtn" hidden="">Start camera</button>
+      <button type="button" class="ghost" id="sDemo" title="For demos without a camera">Demo: simulate scan</button>
+    </div>
+    <div id="sResult" role="status" aria-live="assertive" style="display:contents"></div>
+    <form class="manual" id="sManual" novalidate="">
+      <label class="pm-sr" for="sInput">Tracking ID</label>
+      <input id="sInput" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Type tracking ID, e.g. 8F3K29">
+      <button type="submit" class="rp-btn" style="background:#F97316;color:#1C1917">Go</button>
+    </form>
+  </div>
+
+  <div class="rp-safe-b" id="sSheet" style="flex:none;background:#fff;color:#0F172A;border-radius:24px 24px 0 0;padding:18px 16px 18px;display:flex;flex-direction:column;gap:10px;max-height:38%;overflow-y:auto;box-sizing:border-box">
+    <div style="display:flex;justify-content:space-between;align-items:center"><b style="font-size:16px" id="sListT">Recent scans</b><span style="font-size:22px;font-weight:800;color:#1D4ED8" id="sCount"></span></div>
+    <div style="height:8px;border-radius:99px;background:#E2E8F0;overflow:hidden" id="sBar" hidden=""><div style="width:0;height:100%;background:#2563EB;border-radius:99px" id="sBarFill"></div></div>
+    <div id="sList"><div class="sc" style="color:#475569">Scan or type a tracking ID to open the parcel.</div></div>
+    <button type="button" id="sConfirm" hidden="" style="height:52px;border:0;border-radius:14px;background:#F97316;color:#1C1917;font:800 16px 'Plus Jakarta Sans',sans-serif;cursor:pointer;margin-top:4px;flex:none">Confirm pickup</button>
+  </div>
+<div class="rp-offline" role="status" hidden="">You're offline — changes are saved on this phone</div></div>
+
+<dialog class="pm-modal" id="sShort" aria-labelledby="sShortT">
+  <div class="pm-modal-h"><h2 id="sShortT">Fewer parcels than expected</h2><button type="button" data-modal-close="sShort" aria-label="Close">×</button></div>
+  <div class="pm-modal-b"><p style="margin:0;font-size:14.5px;line-height:1.5" id="sShortTxt"></p></div>
+  <div class="pm-modal-f">
+    <button type="button" class="rp-btn" data-modal-close="sShort" style="background:#F1F5F9;color:#0F172A">Keep scanning</button>
+    <button type="button" class="rp-btn" id="sShortOk" style="background:#F97316;color:#1C1917">Confirm anyway</button>
+  </div>
+</dialog>
+<script src="assets/core.js"></script>
+<script src="assets/js/rider.js"></script>
+
+
+</body></html>

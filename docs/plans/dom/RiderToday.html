@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rider – Today's Tasks · percelme</title>
+<meta name="theme-color" content="#10294A">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="rider.webmanifest">
+<link rel="apple-touch-icon" href="assets/rider/icon-180.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="percelme Rider">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Fira+Code:wght@500;600&amp;display=swap" rel="stylesheet">
+<style>
+/* Page-wide link rules: `a` sits in the base layer and `a:hover` skips the shared components, so the shared
+   components in app.css win over them as they did when core.css came after this block (PLANCSS Step 03). */
+body{margin:0}
+@layer base{a{color:#1D4ED8;text-decoration:none}}a:hover:not(:where(.pm-opt,.pm-ni,.pm-btn.p,.pm-btn.danger,.rp-nav .bn,.rp-menu a,.rp-chip.on)){color:#1E3A8A}
+.tk{background:#fff;border:1px solid #E2E8F0;border-radius:18px;padding:14px;display:flex;flex-direction:column;gap:12px;color:#0F172A}
+.tk.next{border:2px solid #2563EB;padding:13px}
+.tk.done{opacity:.75}
+.tk-main{display:flex;flex-direction:column;gap:12px;color:inherit;border-radius:12px}
+.tk-main:hover{color:inherit}
+.num{width:30px;height:30px;border-radius:9px;background:#EFF6FF;color:#1D4ED8;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;flex:none}
+.act{flex:1;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;gap:7px;font-weight:700;font-size:14px;border:0;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif}
+.badge{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:999px;font-size:11.5px;font-weight:700;white-space:nowrap}
+.online{display:flex;align-items:center;gap:8px;border-radius:99px;padding:6px 6px 6px 12px;font-size:13px;font-weight:700;cursor:pointer;min-height:34px;background:#14532D;color:#BBF7D0;position:relative}
+.online .sw{width:36px;height:22px;border-radius:99px;background:#22C55E;position:relative;display:inline-block;transition:background .15s}
+.online .sw::after{content:'';position:absolute;right:3px;top:3px;width:16px;height:16px;border-radius:50%;background:#fff;transition:right .15s}
+.online.off{background:#334155;color:#CBD5E1}.online.off .sw{background:#64748B}.online.off .sw::after{right:17px}
+.online::before{content:"";position:absolute;inset:-6px -2px}
+.online:focus-within{outline:3px solid #93C5FD;outline-offset:2px}
+.seg{flex:1;height:40px;border:0;border-radius:11px;font:700 14px 'Plus Jakarta Sans',sans-serif;color:#475569;cursor:pointer;display:flex;align-items:center;justify-content:center;background:transparent}
+.seg.on{background:#fff;color:#0F172A;font-weight:800}
+</style>
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body data-area="rider" data-page="RiderToday">
+<div class="rp-app" style="width:390px;height:844px;box-sizing:border-box;font-family:'Plus Jakarta Sans',sans-serif;color:#0F172A;background:#F1F5F9;display:flex;flex-direction:column;overflow:hidden;position:relative">
+
+  <div class="rp-scroll" style="display:flex;flex-direction:column">
+  <div style="background:#1E3A8A;color:#fff;padding:22px 18px 70px;display:flex;flex-direction:column;gap:18px">
+    <div style="display:flex;align-items:center;gap:12px">
+      <button type="button" id="rpAvatar" data-modal-open="rpMenu" aria-label="Open account menu" style="width:44px;height:44px;border:0;border-radius:14px;background:#DBEAFE;color:#1D4ED8;font:800 15px 'Plus Jakarta Sans',sans-serif;display:flex;align-items:center;justify-content:center;cursor:pointer" data-rp-initials="">RH</button>
+      <div style="flex:1;line-height:1.3;min-width:0"><div style="font-size:13px;color:#BFDBFE" id="rpGreet">Good afternoon</div><div style="font-weight:800;font-size:18px" data-rp-name="">Rakib Hasan</div></div>
+      <label class="online" id="rpOnline"><span id="rpOnlineTxt">Online</span><span class="sw" aria-hidden="true"></span><input type="checkbox" checked="" style="position:absolute;opacity:0;width:1px;height:1px" aria-label="Online — receiving new tasks"></label>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+      <div style="font-size:13px;color:#BFDBFE;display:flex;align-items:center;gap:6px;flex:1;min-width:0"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"></path><path d="M5 21V8l7-5 7 5v13"></path></svg><span id="rpDate">Mirpur hub · Saturday, Oct 24</span></div>
+      <button type="button" class="rp-btn" data-rp-route="" style="background:#F97316;color:#1C1917;min-height:40px;font-size:13.5px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>Start route</button>
+    </div>
+  </div>
+
+  <div style="margin:-56px 14px 0;background:#fff;border-radius:20px;padding:16px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;box-shadow:0 20px 40px -24px rgba(15,23,42,.45);position:relative">
+    <div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:12px;color:#475569;font-weight:600">Delivered</span><b style="font-size:22px"><span id="stDel">4</span><span style="font-size:14px;color:#475569;font-weight:600" id="stDelOf">/12</span></b></div>
+    <a href="RiderPickups.html" style="display:flex;flex-direction:column;gap:2px;border-left:1px solid #E2E8F0;padding-left:12px;color:inherit"><span style="font-size:12px;color:#475569;font-weight:600">Pickups</span><b style="font-size:22px"><span id="stPk">2</span><span style="font-size:14px;color:#475569;font-weight:600" id="stPkOf">/5</span></b></a>
+    <a href="RiderCash.html" style="display:flex;flex-direction:column;gap:2px;border-left:1px solid #E2E8F0;padding-left:12px;color:inherit;min-width:0"><span style="font-size:12px;color:#475569;font-weight:600">Cash</span><b style="font-size:19px;color:#9A3412;white-space:nowrap" id="stCash">৳4,910</b></a>
+    <div style="grid-column:span 3;height:8px;border-radius:99px;background:#E2E8F0;overflow:hidden;margin-top:6px" role="progressbar" aria-label="Deliveries completed" aria-valuemin="0" aria-valuemax="100" id="stBar" aria-valuenow="33"><div style="width: 33%; height: 100%; background: rgb(37, 99, 235); border-radius: 99px; transition: width 0.3s;" id="stBarFill"></div></div>
+  </div>
+
+  <div role="tablist" aria-label="Task type" style="display:flex;gap:4px;margin:16px 14px 12px;background:#E2E8F0;border-radius:14px;padding:4px">
+    <span class="seg on" role="tab" aria-selected="true" id="segDel">Deliveries · 8</span>
+    <a class="seg" href="RiderPickups.html" role="tab" aria-selected="false" id="segPk">Pickups · 3</a>
+  </div>
+
+  <div class="rp-chips" role="group" aria-label="Filter deliveries" id="rpChips">
+    <button type="button" class="rp-chip on" data-f="todo" aria-pressed="true">To do · 8</button>
+    <button type="button" class="rp-chip" data-f="cod" aria-pressed="false">COD · 6</button>
+    <button type="button" class="rp-chip" data-f="done" aria-pressed="false">Done · 4</button>
+    <button type="button" class="rp-chip" data-f="failed" aria-pressed="false">Failed · 0</button>
+    <button type="button" class="rp-chip" data-f="all" aria-pressed="false">All · 12</button>
+  </div>
+
+  <div style="padding:0 14px 16px;display:flex;flex-direction:column;gap:12px" id="rpList" aria-live="polite"><article class="tk next"><a class="tk-main" href="RiderDelivery.html?id=PM-2410-8F3K29" aria-label="Nusrat Jahan, House 22, Road 3, Block C, Mirpur 10, COD 1850 taka"><div style="display:flex;gap:10px;align-items:flex-start"><span class="num" style="background:#2563EB;color:#fff">1</span><div style="flex:1;min-width:0"><div style="display:flex;justify-content:space-between;gap:8px"><b style="font-size:15px">Nusrat Jahan</b><span class="badge" style="background:#FFEDD5;color:#9A3412">Next stop</span></div><div style="font-size:13px;color:#475569;margin-top:2px">House 22, Road 3, Block C, Mirpur 10</div></div></div><div style="display:flex;justify-content:space-between;align-items:center;font-size:13px"><span style="font-family:'Fira Code',monospace;font-weight:600;color:#1D4ED8">PM-2410-8F3K29</span><b style="font-size:16px">COD ৳ 1,850</b></div></a><div style="display:flex;gap:8px"><a class="act" href="tel:+8801712345678" style="background:#DCFCE7;color:#166534" aria-label="Call Nusrat Jahan" data-call="PM-2410-8F3K29"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>Call</a><a class="act" href="https://www.google.com/maps/search/?api=1&amp;query=House%2022%2C%20Road%203%2C%20Block%20C%2C%20Mirpur%2010%2C%20Dhaka%2C%20Bangladesh" target="_blank" rel="noopener" style="background:#EFF6FF;color:#1D4ED8" aria-label="Navigate to Nusrat Jahan (opens Google Maps)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>Navigate</a><a class="act" href="RiderDelivery.html?id=PM-2410-8F3K29" style="background:#F97316;color:#1C1917">Deliver</a></div></article><article class="tk"><a class="tk-main" href="RiderDelivery.html?id=PM-2410-9X2B11" aria-label="Kamrul Islam, Flat 4B, Senpara Parbata, Mirpur 10, COD 640 taka"><div style="display:flex;gap:10px;align-items:flex-start"><span class="num">2</span><div style="flex:1;min-width:0"><div style="display:flex;justify-content:space-between;gap:8px"><b style="font-size:15px">Kamrul Islam</b><span class="badge" style="background:#F1F5F9;color:#334155">0.8 km</span></div><div style="font-size:13px;color:#475569;margin-top:2px">Flat 4B, Senpara Parbata, Mirpur 10</div></div></div><div style="display:flex;justify-content:space-between;align-items:center;font-size:13px"><span style="font-family:'Fira Code',monospace;font-weight:600;color:#1D4ED8">PM-2410-9X2B11</span><b style="font-size:16px">COD ৳ 640</b></div></a></article><article class="tk"><a class="tk-main" href="RiderDelivery.html?id=PM-2410-2K7H40" aria-label="Taslima Begum, Road 7, Section 11, Mirpur, prepaid"><div style="display:flex;gap:10px;align-items:flex-start"><span class="num">3</span><div style="flex:1;min-width:0"><div style="display:flex;justify-content:space-between;gap:8px"><b style="font-size:15px">Taslima Begum</b><span class="badge" style="background:#FEF3C7;color:#92400E">Call first</span></div><div style="font-size:13px;color:#475569;margin-top:2px">Road 7, Section 11, Mirpur</div></div></div><div style="display:flex;justify-content:space-between;align-items:center;font-size:13px"><span style="font-family:'Fira Code',monospace;font-weight:600;color:#1D4ED8">PM-2410-2K7H40</span><b style="font-size:16px;color:#166534">Prepaid</b></div></a></article><article class="tk"><a class="tk-main" href="RiderDelivery.html?id=PM-2410-7D4P63" aria-label="Jahid Hasan, Road 4, Block B, Pallabi, Mirpur 12, COD 980 taka"><div style="display:flex;gap:10px;align-items:flex-start"><span class="num">4</span><div style="flex:1;min-width:0"><div style="display:flex;justify-content:space-between;gap:8px"><b style="font-size:15px">Jahid Hasan</b><span class="badge" style="background:#F1F5F9;color:#334155">1.6 km</span></div><div style="font-size:13px;color:#475569;margin-top:2px">Road 4, Block B, Pallabi, Mirpur 12</div></div></div><div style="display:flex;justify-content:space-between;align-items:center;font-size:13px"><span style="font-family:'Fira Code',monospace;font-weight:600;color:#1D4ED8">PM-2410-7D4P63</span><b style="font-size:16px">COD ৳ 980</b></div></a></article><article class="tk"><a class="tk-main" href="RiderDelivery.html?id=PM-2410-6Q1W84" aria-label="Farhana Akter, Road 2, Section 6, Mirpur, COD 1250 taka"><div style="display:flex;gap:10px;align-items:flex-start"><span class="num">5</span><div style="flex:1;min-width:0"><div style="display:flex;justify-content:space-between;gap:8px"><b style="font-size:15px">Farhana Akter</b><span class="badge" style="background:#F1F5F9;color:#334155">2.1 km</span></div><div style="font-size:13px;color:#475569;margin-top:2px">Road 2, Section 6, Mirpur</div></div></div><div style="display:flex;justify-content:space-between;align-items:center;font-size:13px"><span style="font-family:'Fira Code',monospace;font-weight:600;color:#1D4ED8">PM-2410-6Q1W84</span><b style="font-size:16px">COD ৳ 1,250</b></div></a></article><article class="tk"><a class="tk-main" href="RiderDelivery.html?id=PM-2410-3N9V07" aria-label="Mahmudul Karim, Kazipara, Mirpur, COD 3490 taka"><div style="display:flex;gap:10px;align-items:flex-start"><span class="num">6</span><div style="flex:1;min-width:0"><div style="display:flex;justify-content:space-between;gap:8px"><b style="font-size:15px">Mahmudul Karim</b><span class="badge" style="background:#F1F5F9;color:#334155">2.7 km</span></div><div style="font-size:13px;color:#475569;margin-top:2px">Kazipara, Mirpur</div></div></div><div style="display:flex;justify-content:space-between;align-items:center;font-size:13px"><span style="font-family:'Fira Code',monospace;font-weight:600;color:#1D4ED8">PM-2410-3N9V07</span><b style="font-size:16px">COD ৳ 3,490</b></div></a></article><article class="tk"><a class="tk-main" href="RiderDelivery.html?id=PM-2410-1C5X52" aria-label="Sabina Yasmin, West Shewrapara, Mirpur, prepaid"><div style="display:flex;gap:10px;align-items:flex-start"><span class="num">7</span><div style="flex:1;min-width:0"><div style="display:flex;justify-content:space-between;gap:8px"><b style="font-size:15px">Sabina Yasmin</b><span class="badge" style="background:#F1F5F9;color:#334155">3.0 km</span></div><div style="font-size:13px;color:#475569;margin-top:2px">West Shewrapara, Mirpur</div></div></div><div style="display:flex;justify-content:space-between;align-items:center;font-size:13px"><span style="font-family:'Fira Code',monospace;font-weight:600;color:#1D4ED8">PM-2410-1C5X52</span><b style="font-size:16px;color:#166534">Prepaid</b></div></a></article><article class="tk"><a class="tk-main" href="RiderDelivery.html?id=PM-2410-4H8J26" aria-label="Arif Chowdhury, Taltola, Agargaon, COD 760 taka"><div style="display:flex;gap:10px;align-items:flex-start"><span class="num">8</span><div style="flex:1;min-width:0"><div style="display:flex;justify-content:space-between;gap:8px"><b style="font-size:15px">Arif Chowdhury</b><span class="badge" style="background:#F1F5F9;color:#334155">3.6 km</span></div><div style="font-size:13px;color:#475569;margin-top:2px">Taltola, Agargaon</div></div></div><div style="display:flex;justify-content:space-between;align-items:center;font-size:13px"><span style="font-family:'Fira Code',monospace;font-weight:600;color:#1D4ED8">PM-2410-4H8J26</span><b style="font-size:16px">COD ৳ 760</b></div></a></article></div>
+  </div>
+
+  <nav class="rp-nav" aria-label="Rider">
+    <a class="bn on" href="RiderToday.html" aria-current="page"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7.5 4.27 9 5.15"></path><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="M12 22V12"></path></svg>Tasks</a>
+    <button class="bn" type="button" data-rp-route=""><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>Route</button>
+    <a class="rp-scan" href="RiderScanner.html" aria-label="Scan parcel"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1C1917" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2"></path><path d="M17 3h2a2 2 0 0 1 2 2v2"></path><path d="M21 17v2a2 2 0 0 1-2 2h-2"></path><path d="M7 21H5a2 2 0 0 1-2-2v-2"></path><path d="M7 12h10"></path></svg></a>
+    <a class="bn" href="RiderCash.html"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"></path><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"></path></svg>Cash</a>
+    <a class="bn" href="RiderEarnings.html"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"></path></svg>Profile</a>
+  </nav>
+<div class="rp-offline" role="status" hidden="">You're offline — changes are saved on this phone</div></div>
+
+<dialog class="pm-modal" id="rpMenu" aria-labelledby="rpMenuT">
+  <div class="pm-modal-h"><h2 id="rpMenuT" data-rp-name="">Rakib Hasan</h2><button type="button" data-modal-close="rpMenu" aria-label="Close">×</button></div>
+  <div class="pm-modal-b rp-menu">
+    <a href="RiderEarnings.html">Profile &amp; earnings</a>
+    <a href="RiderCash.html">Cash in hand</a>
+    <a href="RiderPickups.html">Pickups</a>
+    <button type="button" data-rp-install="" hidden="">Install app on this phone</button>
+    <button type="button" data-rp-reset="">Reset demo data</button>
+    <button type="button" class="bad" data-rp-logout="">Log out</button>
+  </div>
+</dialog>
+<script src="assets/core.js"></script>
+<script src="assets/js/rider.js"></script>
+
+
+</body></html>

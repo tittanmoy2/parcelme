@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rider – Cash in Hand · percelme</title>
+<meta name="theme-color" content="#10294A">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="rider.webmanifest">
+<link rel="apple-touch-icon" href="assets/rider/icon-180.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Fira+Code:wght@500;600&amp;display=swap" rel="stylesheet">
+<style>
+/* Page-wide link rules: `a` sits in the base layer and `a:hover` skips the shared components, so the shared
+   components in app.css win over them as they did when core.css came after this block (PLANCSS Step 03). */
+body{margin:0}
+@layer base{a{color:#1D4ED8;text-decoration:none}}
+.it{display:flex;align-items:center;gap:12px;padding:12px 0;border-top:1px solid #F1F5F9;font-size:14px}
+.it .ic{width:32px;height:32px;border-radius:50%;background:#DCFCE7;color:#166534;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;flex:none}
+.mono{font-family:'Fira Code',monospace;font-weight:600;color:#1D4ED8;font-size:12px}
+.dp{display:flex;align-items:center;gap:8px;border:1px solid #CBD5E1;border-radius:12px;padding:12px;font-size:13.5px;font-weight:600;cursor:pointer;min-height:48px;box-sizing:border-box}
+.dp:has(input:checked){border:2px solid #2563EB;background:#EFF6FF;padding:11px;font-weight:800}
+.dp:focus-within{outline:3px solid #93C5FD;outline-offset:2px}
+.dp input{width:16px;height:16px;accent-color:#2563EB;margin:0;flex:none}
+.more{display:block;width:100%;text-align:center;font:800 13.5px 'Plus Jakarta Sans',sans-serif;padding:10px 0 0;min-height:44px;background:none;border:0;color:#1D4ED8;cursor:pointer}
+</style>
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body data-area="rider" data-page="RiderCash">
+<div class="rp-app" style="width:390px;height:844px;box-sizing:border-box;font-family:'Plus Jakarta Sans',sans-serif;color:#0F172A;background:#F1F5F9;display:flex;flex-direction:column;overflow:hidden;position:relative">
+  <div class="rp-scroll" style="display:flex;flex-direction:column">
+  <div style="background:#10294A;color:#fff;padding:20px 18px 26px;display:flex;flex-direction:column;gap:16px">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><h1 style="font-size:18px;margin:0;font-weight:800">Cash in hand</h1><span style="font-size:12.5px;font-weight:700;background:#7C2D12;color:#FED7AA;border-radius:99px;padding:5px 10px" id="cDue">Deposit by 8 PM</span></div>
+    <div><div style="font-size:42px;font-weight:800;letter-spacing:-0.03em" id="cHand">৳ 4,910</div><div style="font-size:13px;color:#CBD5E1" id="cFrom">From 3 COD parcels today</div></div>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px">
+      <div style="background:#1E3A5F;border-radius:14px;padding:10px 12px;min-width:0"><div style="font-size:11.5px;color:#CBD5E1">Collected</div><b style="font-size:16px" id="cCol">৳ 4,910</b></div>
+      <div style="background:#1E3A5F;border-radius:14px;padding:10px 12px;min-width:0"><div style="font-size:11.5px;color:#CBD5E1">Deposited</div><b style="font-size:16px" id="cDep">৳ 0</b></div>
+      <div style="background:#1E3A5F;border-radius:14px;padding:10px 12px;min-width:0"><div style="font-size:11.5px;color:#CBD5E1">Still due</div><b style="font-size:16px;color:#FDBA74" id="cStill">৳ 4,910</b></div>
+    </div>
+  </div>
+  <div style="padding:14px;display:flex;flex-direction:column;gap:12px">
+    <section style="background:#fff;border:1px solid #E2E8F0;border-radius:18px;padding:14px 16px">
+      <div style="display:flex;justify-content:space-between;align-items:center"><h2 style="font-size:15px;margin:0;font-weight:800">Today's collections</h2><span style="font-size:12.5px;color:#475569" id="cN">3 parcels</span></div>
+      <div id="cList"><div class="it"><span class="ic" aria-hidden="true">✓</span><div style="flex:1;min-width:0"><b>Shirin Sultana</b><div class="mono">PM-2410-8B3C61 <span style="color:#475569;font-family:'Plus Jakarta Sans',sans-serif">· 12:10 PM</span></div></div><b>৳ 1,490</b></div><div class="it"><span class="ic" aria-hidden="true">✓</span><div style="flex:1;min-width:0"><b>Ruma Akter</b><div class="mono">PM-2410-4L1M93 <span style="color:#475569;font-family:'Plus Jakarta Sans',sans-serif">· 11:05 AM</span></div></div><b>৳ 1,120</b></div><div class="it"><span class="ic" aria-hidden="true">✓</span><div style="flex:1;min-width:0"><b>Rafiq Uddin</b><div class="mono">PM-2410-3J8K72 <span style="color:#475569;font-family:'Plus Jakarta Sans',sans-serif">· 10:42 AM</span></div></div><b>৳ 2,300</b></div></div>
+      <button type="button" class="more" id="cMore" aria-expanded="false" hidden="">See all 3</button>
+    </section>
+    <section id="cDepSec" hidden="" style="background:#fff;border:1px solid #E2E8F0;border-radius:18px;padding:14px 16px">
+      <h2 style="font-size:15px;margin:0;font-weight:800">Deposits</h2>
+      <div id="cDepList"></div>
+    </section>
+    <section style="background:#fff;border:1px solid #E2E8F0;border-radius:18px;padding:14px 16px;display:flex;flex-direction:column;gap:10px">
+      <h2 style="font-size:15px;margin:0;font-weight:800" id="cHow">Deposit cash</h2>
+      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px" role="radiogroup" aria-labelledby="cHow">
+        <label class="dp"><input type="radio" name="dp" value="hub" checked="">At Mirpur hub</label>
+        <label class="dp"><input type="radio" name="dp" value="bkash">bKash to company</label>
+      </div>
+      <label class="rp-field" id="cTrxWrap" hidden="">bKash transaction ID<input id="cTrx" autocomplete="off" placeholder="e.g. 9JK4L2M8QX" style="font-family:'Fira Code',monospace;text-transform:uppercase"></label>
+    </section>
+  </div>
+  </div>
+  <div style="padding:10px 14px 12px;flex:none"><button type="button" id="cGo" class="rp-btn" style="width:100%;height:54px;border:0;border-radius:14px;background:#F97316;color:#1C1917;font:800 16px 'Plus Jakarta Sans',sans-serif;cursor:pointer">Hand over ৳ 4,910</button></div>
+  <nav class="rp-nav" aria-label="Rider">
+    <a class="bn" href="RiderToday.html"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7.5 4.27 9 5.15"></path><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="M12 22V12"></path></svg>Tasks</a>
+    <button class="bn" type="button" data-rp-route=""><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>Route</button>
+    <a class="rp-scan" href="RiderScanner.html" aria-label="Scan parcel"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1C1917" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2"></path><path d="M17 3h2a2 2 0 0 1 2 2v2"></path><path d="M21 17v2a2 2 0 0 1-2 2h-2"></path><path d="M7 21H5a2 2 0 0 1-2-2v-2"></path><path d="M7 12h10"></path></svg></a>
+    <a class="bn on" href="RiderCash.html" aria-current="page"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"></path><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"></path></svg>Cash</a>
+    <a class="bn" href="RiderEarnings.html"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"></path></svg>Profile</a>
+  </nav>
+<div class="rp-offline" role="status" hidden="">You're offline — changes are saved on this phone</div></div>
+
+<dialog class="pm-modal" id="cDlg" aria-labelledby="cDlgT">
+  <div class="pm-modal-h"><h2 id="cDlgT">Confirm hand-over</h2><button type="button" data-modal-close="cDlg" aria-label="Close">×</button></div>
+  <div class="pm-modal-b"><p style="margin:0;font-size:14.5px;line-height:1.55" id="cDlgTxt"></p></div>
+  <div class="pm-modal-f">
+    <button type="button" class="rp-btn" data-modal-close="cDlg" style="background:#F1F5F9;color:#0F172A">Cancel</button>
+    <button type="button" class="rp-btn" id="cDlgOk" style="background:#F97316;color:#1C1917">Confirm</button>
+  </div>
+</dialog>
+<script src="assets/core.js"></script>
+<script src="assets/js/rider.js"></script>
+
+
+</body></html>

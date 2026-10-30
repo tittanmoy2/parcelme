@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rider – Delivery &amp; POD · percelme</title>
+<meta name="theme-color" content="#10294A">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="rider.webmanifest">
+<link rel="apple-touch-icon" href="assets/rider/icon-180.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Fira+Code:wght@500;600&amp;display=swap" rel="stylesheet">
+<style>
+/* Page-wide link rules: `a` sits in the base layer and `a:hover` skips the shared components, so the shared
+   components in app.css win over them as they did when core.css came after this block (PLANCSS Step 03). */
+body{margin:0}
+@layer base{a{color:#1D4ED8;text-decoration:none}}a:hover:not(:where(.pm-opt,.pm-ni,.pm-btn.p,.pm-btn.danger,.rp-nav .bn,.rp-menu a,.rp-chip.on)){color:#1E3A8A}
+.otp{width:58px;height:62px;border:2px solid #CBD5E1;border-radius:14px;text-align:center;font:800 26px 'Fira Code',monospace;color:#0F172A;background:#fff;box-sizing:border-box}
+.otp:focus{border-color:#2563EB;box-shadow:0 0 0 4px #DBEAFE;outline:0}
+.otp.ok{border-color:#16A34A;background:#F0FDF4}
+.otp.bad{border-color:#DC2626;background:#FEF2F2}
+.pm{flex:1;height:42px;border:0;border-radius:11px;font:700 13.5px 'Plus Jakarta Sans',sans-serif;cursor:pointer;background:transparent;color:#475569;display:flex;align-items:center;justify-content:center;gap:6px}
+.pm[aria-selected="true"]{background:#fff;color:#0F172A;box-shadow:0 1px 3px rgba(15,23,42,.12)}
+.pm .tick{display:none;width:16px;height:16px;border-radius:50%;background:#16A34A;color:#fff;font-size:10px;line-height:16px;text-align:center}
+.pm.done .tick{display:inline-block}
+.ln{display:flex;justify-content:space-between;gap:12px;font-size:13.5px;padding:8px 0}
+.ln span:first-child{color:#475569}
+.ln b{text-align:right}
+.collect{display:flex;align-items:center;gap:8px;background:#1E293B;border-radius:12px;padding:10px 12px;font-size:13.5px;font-weight:700;cursor:pointer;min-height:44px;box-sizing:border-box}
+.collect.ok{background:#14532D;color:#BBF7D0}
+.photo-drop{min-height:140px;border:2px dashed #CBD5E1;border-radius:14px;background:#F8FAFC;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;font-weight:700;color:#475569;cursor:pointer;font-size:14px;text-align:center;padding:12px}
+.photo-drop:focus-within{outline:3px solid #93C5FD;outline-offset:2px}
+.sig{width:100%;height:170px;border:2px dashed #CBD5E1;border-radius:14px;background:#fff;touch-action:none;display:block;cursor:crosshair}
+.sig.ok{border-style:solid;border-color:#16A34A}
+.need{font-size:12.5px;color:#475569;text-align:center;margin:0}
+.need b{color:#0F172A}
+.okline{display:flex;align-items:center;justify-content:center;gap:8px;font-size:13.5px;font-weight:700;color:#166534;background:#DCFCE7;border-radius:12px;padding:10px}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.shake{animation:shake .25s 2}
+</style>
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body data-area="rider" data-page="RiderDelivery">
+<div class="rp-app" style="width:390px;height:844px;box-sizing:border-box;font-family:'Plus Jakarta Sans',sans-serif;color:#0F172A;background:#F1F5F9;display:flex;flex-direction:column;overflow:hidden;position:relative">
+
+  <header style="height:64px;flex:none;background:#fff;border-bottom:1px solid #E2E8F0;display:flex;align-items:center;gap:8px;padding:0 10px">
+    <a href="RiderToday.html" aria-label="Back to tasks" style="width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#0F172A"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg></a>
+    <div style="flex:1;line-height:1.25;min-width:0"><b style="font-size:16px" id="dStop">Stop 1 of 8</b><div style="font-family:'Fira Code',monospace;font-size:12px;font-weight:600;color:#1D4ED8" id="dId">PM-2410-8F3K29</div></div>
+    <button type="button" aria-label="More options" data-modal-open="dMore" style="width:44px;height:44px;border:0;border-radius:12px;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="#475569" aria-hidden="true"><circle cx="12" cy="5" r="2"></circle><circle cx="12" cy="12" r="2"></circle><circle cx="12" cy="19" r="2"></circle></svg></button>
+  </header>
+
+  <div class="rp-scroll" style="padding:14px;display:flex;flex-direction:column;gap:12px" id="dBody">
+    <div id="dStatus" hidden=""></div>
+
+    <section style="background:#fff;border:1px solid #E2E8F0;border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:12px">
+      <div style="display:flex;gap:12px;align-items:center">
+        <span style="width:44px;height:44px;border-radius:50%;background:#FFEDD5;color:#9A3412;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none" id="dInit">NJ</span>
+        <div style="flex:1;line-height:1.3;min-width:0"><b style="font-size:16px" id="dName">Nusrat Jahan</b><div style="font-size:13px;color:#475569" id="dPhone">01712-345678</div></div>
+        <a href="tel:+8801712345678" id="dCall" aria-label="Call Nusrat Jahan" style="width:44px;height:44px;border-radius:12px;background:#DCFCE7;display:flex;align-items:center;justify-content:center;flex:none"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=House%2022%2C%20Road%203%2C%20Block%20C%2C%20Mirpur%2010%2C%20Dhaka%2C%20Bangladesh" id="dNav" target="_blank" rel="noopener" aria-label="Navigate to address (opens Google Maps)" style="width:44px;height:44px;border-radius:12px;background:#EFF6FF;display:flex;align-items:center;justify-content:center;flex:none"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#1D4ED8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg></a>
+      </div>
+      <div style="display:flex;gap:10px;font-size:13.5px;color:#334155;background:#F8FAFC;border-radius:12px;padding:10px 12px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-top:1px"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg><span id="dAddr">House 22, Road 3, Block C, Mirpur 10, Dhaka</span></div>
+      <div>
+        <div class="ln"><span>Merchant</span><b id="dMerchant">Shopnil Fashion</b></div>
+        <div class="ln"><span>Item</span><b id="dItem">2 × Cotton kurti (M)</b></div>
+        <div class="ln" id="dNoteRow"><span>Note</span><b style="color:#9A3412" id="dNote">Call before delivery</b></div>
+      </div>
+    </section>
+
+    <section id="dCash" style="background:#0F172A;color:#fff;border-radius:18px;padding:16px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px">
+      <div><div style="font-size:13px;color:#CBD5E1;font-weight:600" id="dCashLbl">Collect cash</div><div style="font-size:32px;font-weight:800;letter-spacing:-0.02em" id="dCashAmt">৳ 1,850</div></div>
+      <label class="collect" id="dCollectLbl"><input type="checkbox" id="dCollected" style="width:20px;height:20px;accent-color:#F97316;margin:0">Collected ৳ 1,850</label>
+    </section>
+
+    <section id="dProof" style="background:#fff;border:1px solid #E2E8F0;border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;justify-content:space-between;align-items:center"><b style="font-size:15px">Proof of delivery</b><span style="font-size:12px;color:#475569">any one</span></div>
+      <div role="tablist" aria-label="Proof type" style="display:flex;gap:4px;background:#F1F5F9;border-radius:13px;padding:4px">
+        <button class="pm" type="button" role="tab" id="tab-otp" aria-controls="pp-otp" aria-selected="true" data-proof="otp"><span class="tick" aria-hidden="true">✓</span>OTP</button>
+        <button class="pm" type="button" role="tab" id="tab-photo" aria-controls="pp-photo" aria-selected="false" data-proof="photo" tabindex="-1"><span class="tick" aria-hidden="true">✓</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"></path><circle cx="12" cy="13" r="3"></circle></svg>Photo</button>
+        <button class="pm" type="button" role="tab" id="tab-sign" aria-controls="pp-sign" aria-selected="false" data-proof="sign" tabindex="-1"><span class="tick" aria-hidden="true">✓</span>Signature</button>
+      </div>
+
+      <div id="pp-otp" role="tabpanel" aria-labelledby="tab-otp" style="display:flex;flex-direction:column;gap:14px">
+        <div style="font-size:13px;color:#475569;text-align:center">Ask the customer for the 4-digit code sent by SMS</div>
+        <div style="display:flex;justify-content:center;gap:10px" id="dOtp">
+          <input class="otp" inputmode="numeric" autocomplete="one-time-code" maxlength="1" aria-label="OTP digit 1">
+          <input class="otp" inputmode="numeric" maxlength="1" aria-label="OTP digit 2">
+          <input class="otp" inputmode="numeric" maxlength="1" aria-label="OTP digit 3">
+          <input class="otp" inputmode="numeric" maxlength="1" aria-label="OTP digit 4">
+        </div>
+        <div id="dOtpMsg" role="status" style="font-size:13px;font-weight:700;text-align:center;min-height:18px"></div>
+        <div style="display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap">
+          <button type="button" id="dResend" class="rp-btn" style="background:none;color:#1D4ED8;font-weight:800;font-size:13.5px" disabled="">Resend code (0:39)</button>
+        </div>
+        <div style="font-size:12px;color:#92400E;background:#FFFBEB;border:1px solid #FDE68A;border-radius:10px;padding:8px 10px;text-align:center"><b>Demo:</b> the customer's code is <b style="font-family:'Fira Code',monospace" id="dDemoOtp">4718</b></div>
+      </div>
+
+      <div id="pp-photo" role="tabpanel" aria-labelledby="tab-photo" hidden="" style="display:flex;flex-direction:column;gap:10px">
+        <label class="photo-drop" id="dPhotoDrop">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"></path><circle cx="12" cy="13" r="3"></circle></svg>
+          Take a photo of the parcel at the door
+          <span style="font-size:12px;font-weight:600">Opens the camera on your phone</span>
+          <input type="file" accept="image/*" capture="environment" id="dPhoto" class="pm-sr">
+        </label>
+        <div id="dPhotoPrev" hidden="" style="position:relative">
+          <img alt="Delivery photo preview" id="dPhotoImg" style="width:100%;max-height:220px;object-fit:cover;border-radius:14px;display:block;border:2px solid #16A34A">
+          <button type="button" id="dPhotoRetake" class="rp-btn" style="position:absolute;right:8px;bottom:8px;background:rgba(15,23,42,.85);color:#fff">Retake</button>
+        </div>
+      </div>
+
+      <div id="pp-sign" role="tabpanel" aria-labelledby="tab-sign" hidden="" style="display:flex;flex-direction:column;gap:10px">
+        <div style="font-size:13px;color:#475569;text-align:center">Ask the customer to sign inside the box</div>
+        <canvas class="sig" id="dSig" aria-label="Signature pad. Draw with finger or mouse." role="img"></canvas>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <span style="font-size:12.5px;color:#475569" id="dSigMsg">Not signed yet</span>
+          <button type="button" id="dSigClear" class="rp-btn" style="background:#F1F5F9;color:#0F172A">Clear</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="dFoot" class="rp-safe-b" style="flex:none;background:#fff;border-top:1px solid #E2E8F0;padding:12px 14px 16px;display:flex;flex-direction:column;gap:10px">
+    <p class="need" id="dNeed">To finish: <b>confirm ৳ 1,850 collected</b> · <b>OTP, photo or signature</b></p>
+    <button type="button" id="dConfirm" disabled="" style="height:54px;border:0;border-radius:14px;background:#16A34A;color:#fff;font:800 16px 'Plus Jakarta Sans',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px" class="rp-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Mark delivered</button>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
+      <button type="button" data-modal-open="dPartial" style="height:46px;border:1px solid #CBD5E1;border-radius:12px;background:#fff;font:700 14px 'Plus Jakarta Sans',sans-serif;color:#0F172A;cursor:pointer">Partial / exchange</button>
+      <a href="RiderFailed.html?id=PM-2410-8F3K29" id="dFail" style="height:46px;border:0;border-radius:12px;background:#FEE2E2;font:700 14px 'Plus Jakarta Sans',sans-serif;color:#991B1B;cursor:pointer;display:flex;align-items:center;justify-content:center">Couldn't deliver</a>
+    </div>
+  </div>
+<div class="rp-offline" role="status" hidden="">You're offline — changes are saved on this phone</div></div>
+
+<dialog class="pm-modal" id="dMore" aria-labelledby="dMoreT">
+  <div class="pm-modal-h"><h2 id="dMoreT">Parcel options</h2><button type="button" data-modal-close="dMore" aria-label="Close">×</button></div>
+  <div class="pm-modal-b rp-menu">
+    <button type="button" id="dCopy">Copy tracking ID</button>
+    <a href="tel:+8801711000111" id="dCallMerchant">Call merchant</a>
+    <a href="RiderFailed.html?id=PM-2410-8F3K29" id="dFail2">Couldn't deliver</a>
+    <button type="button" id="dReport">Report a problem to hub</button>
+  </div>
+</dialog>
+
+<dialog class="pm-modal" id="dPartial" aria-labelledby="dPartialT">
+  <form id="dPartialForm" data-validate="" novalidate="">
+    <div class="pm-modal-h"><h2 id="dPartialT">Partial delivery / exchange</h2><button type="button" data-modal-close="dPartial" aria-label="Close">×</button></div>
+    <div class="pm-modal-b">
+      <label class="rp-field">Type
+        <select name="kind" required=""><option value="">Choose…</option><option value="partial">Customer kept some items</option><option value="exchange">Exchange — took old item back</option></select>
+      </label>
+      <label class="rp-field">Cash collected (৳)
+        <input name="amount" type="number" inputmode="numeric" min="0" step="1" required="" max="1850" placeholder="Up to 1850">
+      </label>
+      <label class="rp-field">What came back?
+        <input name="back" required="" placeholder="e.g. 1 × Cotton kurti (M)">
+      </label>
+      <p style="margin:0;font-size:12.5px;color:#475569">Returned items go back to the hub with today's returns.</p>
+    </div>
+    <div class="pm-modal-f">
+      <button type="button" class="rp-btn" data-modal-close="dPartial" style="background:#F1F5F9;color:#0F172A">Cancel</button>
+      <button type="submit" class="rp-btn" style="background:#2563EB;color:#fff">Save partial</button>
+    </div>
+  </form>
+</dialog>
+<script src="assets/core.js"></script>
+<script src="assets/js/rider.js"></script>
+
+
+</body></html>

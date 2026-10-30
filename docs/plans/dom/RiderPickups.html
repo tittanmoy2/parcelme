@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rider – Pickups · percelme</title>
+<meta name="theme-color" content="#10294A">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="rider.webmanifest">
+<link rel="apple-touch-icon" href="assets/rider/icon-180.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Fira+Code:wght@500;600&amp;display=swap" rel="stylesheet">
+<style>
+/* Page-wide link rules: `a` sits in the base layer and `a:hover` skips the shared components, so the shared
+   components in app.css win over them as they did when core.css came after this block (PLANCSS Step 03). */
+body{margin:0}
+@layer base{a{color:#1D4ED8;text-decoration:none}}
+.pk{background:#fff;border:1px solid #E2E8F0;border-radius:18px;padding:14px;display:flex;flex-direction:column;gap:12px}
+.pk.next{border:2px solid #F97316;padding:13px}
+.pk.done{opacity:.75}
+.act{flex:1;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;gap:7px;font-weight:700;font-size:14px;border:0;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;text-align:center}
+.badge{display:inline-flex;align-items:center;padding:3px 9px;border-radius:999px;font-size:11.5px;font-weight:700;white-space:nowrap}
+.sub{font-size:13px;color:#475569}
+.seg{flex:1;height:40px;border-radius:11px;font-weight:700;font-size:14px;color:#475569;display:flex;align-items:center;justify-content:center}
+.seg.on{background:#fff;font-weight:800;color:#0F172A;box-shadow:0 1px 3px rgba(15,23,42,.12)}
+.stepper{display:flex;align-items:center;justify-content:center;gap:14px}
+.stepper button{width:48px;height:48px;border-radius:14px;border:1px solid #CBD5E1;background:#fff;font:800 22px 'Plus Jakarta Sans',sans-serif;cursor:pointer;color:#0F172A}
+.stepper input{width:96px;height:56px;border:2px solid #2563EB;border-radius:14px;text-align:center;font:800 26px 'Plus Jakarta Sans',sans-serif;color:#0F172A;box-sizing:border-box}
+</style>
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body data-area="rider" data-page="RiderPickups">
+<div class="rp-app" style="width:390px;height:844px;box-sizing:border-box;font-family:'Plus Jakarta Sans',sans-serif;color:#0F172A;background:#F1F5F9;display:flex;flex-direction:column;overflow:hidden;position:relative">
+  <header style="flex:none;background:#fff;border-bottom:1px solid #E2E8F0;padding:16px 16px 0;display:flex;flex-direction:column;gap:14px">
+    <div style="display:flex;align-items:center;gap:10px"><a href="RiderToday.html" aria-label="Back to tasks" style="width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#0F172A;flex:none"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg></a><div style="flex:1"><h1 style="font-size:18px;margin:0;font-weight:800">Pickups today</h1><div class="sub" id="pkSub">2 of 5 done · 61 parcels collected</div></div></div>
+    <div role="tablist" aria-label="Task type" style="display:flex;gap:4px;background:#F1F5F9;border-radius:14px;padding:4px;margin-bottom:12px">
+      <a href="RiderToday.html" class="seg" role="tab" aria-selected="false" id="segDel">Deliveries · 8</a>
+      <span class="seg on" role="tab" aria-selected="true" id="segPk">Pickups · 3</span>
+    </div>
+  </header>
+
+  <div class="rp-scroll" style="padding:14px;display:flex;flex-direction:column;gap:12px" id="pkList" aria-live="polite"><article class="pk next"><div style="display:flex;gap:12px;align-items:flex-start"><span style="width:42px;height:42px;border-radius:12px;background:#FFEDD5;color:#9A3412;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;flex:none">SF</span><div style="flex:1;min-width:0"><div style="display:flex;justify-content:space-between;gap:8px"><b style="font-size:15px">Shopnil Fashion</b><span class="badge" style="background:#FFEDD5;color:#9A3412">Now · 4–6 PM</span></div><div class="sub">House 12, Road 5, Gulshan 1</div></div></div><div style="display:flex;justify-content:space-between;background:#F8FAFC;border-radius:12px;padding:10px 12px;font-size:13.5px"><span style="color:#475569">Expected parcels</span><b>18</b></div><div class="sub" style="background:#FFFBEB;border-radius:10px;padding:8px 10px;color:#92400E">Note: Ask for Rahim at the counter</div><div style="display:flex;gap:8px"><a class="act" href="tel:+8801711000111" style="background:#DCFCE7;color:#166534" aria-label="Call Shopnil Fashion">Call</a><a class="act" href="https://www.google.com/maps/search/?api=1&amp;query=House%2012%2C%20Road%205%2C%20Gulshan%201%2C%20Dhaka%2C%20Bangladesh" target="_blank" rel="noopener" style="background:#EFF6FF;color:#1D4ED8" aria-label="Navigate to Shopnil Fashion (opens Google Maps)">Navigate</a><a class="act" href="RiderScanner.html?pickup=PK-1" style="background:#F97316;color:#1C1917">Scan parcels</a></div><button type="button" class="act" data-pick="PK-1" style="flex:none;width:100%;background:#0F172A;color:#fff">Mark picked up…</button></article><article class="pk"><div style="display:flex;gap:12px;align-items:flex-start"><span style="width:42px;height:42px;border-radius:12px;background:#CCFBF1;color:#115E59;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;flex:none">KC</span><div style="flex:1;min-width:0"><div style="display:flex;justify-content:space-between;gap:8px"><b style="font-size:15px">Kids Corner BD</b><span class="badge" style="background:#F1F5F9;color:#334155">5–7 PM</span></div><div class="sub">Block D, Bashundhara R/A</div></div></div><div style="display:flex;justify-content:space-between;background:#F8FAFC;border-radius:12px;padding:10px 12px;font-size:13.5px"><span style="color:#475569">Expected parcels</span><b>21</b></div><div style="display:flex;gap:8px"><a class="act" href="tel:+8801711000222" style="background:#DCFCE7;color:#166534" aria-label="Call Kids Corner BD">Call</a><a class="act" href="https://www.google.com/maps/search/?api=1&amp;query=Block%20D%2C%20Bashundhara%20R%2FA%2C%20Dhaka%2C%20Bangladesh" target="_blank" rel="noopener" style="background:#EFF6FF;color:#1D4ED8" aria-label="Navigate to Kids Corner BD (opens Google Maps)">Navigate</a><a class="act" href="RiderScanner.html?pickup=PK-2" style="background:#F97316;color:#1C1917">Scan parcels</a></div><button type="button" class="act" data-pick="PK-2" style="flex:none;width:100%;background:#0F172A;color:#fff">Mark picked up…</button></article><article class="pk"><div style="display:flex;gap:12px;align-items:flex-start"><span style="width:42px;height:42px;border-radius:12px;background:#DBEAFE;color:#1D4ED8;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;flex:none">G</span><div style="flex:1;min-width:0"><div style="display:flex;justify-content:space-between;gap:8px"><b style="font-size:15px">GadgetBD</b><span class="badge" style="background:#F1F5F9;color:#334155">6–8 PM</span></div><div class="sub">Gulshan Avenue, Gulshan 2</div></div></div><div style="display:flex;justify-content:space-between;background:#F8FAFC;border-radius:12px;padding:10px 12px;font-size:13.5px"><span style="color:#475569">Expected parcels</span><b>52</b></div><div class="sub" style="background:#FFFBEB;border-radius:10px;padding:8px 10px;color:#92400E">Note: Fragile items — bring bubble bags</div><div style="display:flex;gap:8px"><a class="act" href="tel:+8801711000333" style="background:#DCFCE7;color:#166534" aria-label="Call GadgetBD">Call</a><a class="act" href="https://www.google.com/maps/search/?api=1&amp;query=Gulshan%20Avenue%2C%20Gulshan%202%2C%20Dhaka%2C%20Bangladesh" target="_blank" rel="noopener" style="background:#EFF6FF;color:#1D4ED8" aria-label="Navigate to GadgetBD (opens Google Maps)">Navigate</a><a class="act" href="RiderScanner.html?pickup=PK-3" style="background:#F97316;color:#1C1917">Scan parcels</a></div><button type="button" class="act" data-pick="PK-3" style="flex:none;width:100%;background:#0F172A;color:#fff">Mark picked up…</button></article><article class="pk done"><div style="display:flex;gap:12px;align-items:center"><span style="width:42px;height:42px;border-radius:12px;background:#DCFCE7;color:#166534;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none" aria-hidden="true">✓</span><div style="flex:1"><b style="font-size:15px">Ghorer Bazar</b><div class="sub">Picked up 40 / 41 · 11:20 AM</div></div></div></article><article class="pk done"><div style="display:flex;gap:12px;align-items:center"><span style="width:42px;height:42px;border-radius:12px;background:#DCFCE7;color:#166534;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none" aria-hidden="true">✓</span><div style="flex:1"><b style="font-size:15px">Bookshelf BD</b><div class="sub">Picked up 21 / 21 · 1:05 PM</div></div></div></article></div>
+
+  <nav class="rp-nav" aria-label="Rider">
+    <a class="bn on" href="RiderToday.html" aria-current="page"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7.5 4.27 9 5.15"></path><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="M12 22V12"></path></svg>Tasks</a>
+    <button class="bn" type="button" data-rp-route=""><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>Route</button>
+    <a class="rp-scan" href="RiderScanner.html" aria-label="Scan parcel"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1C1917" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2"></path><path d="M17 3h2a2 2 0 0 1 2 2v2"></path><path d="M21 17v2a2 2 0 0 1-2 2h-2"></path><path d="M7 21H5a2 2 0 0 1-2-2v-2"></path><path d="M7 12h10"></path></svg></a>
+    <a class="bn" href="RiderCash.html"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"></path><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"></path></svg>Cash</a>
+    <a class="bn" href="RiderEarnings.html"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"></path></svg>Profile</a>
+  </nav>
+<div class="rp-offline" role="status" hidden="">You're offline — changes are saved on this phone</div></div>
+
+<dialog class="pm-modal" id="pkDlg" aria-labelledby="pkDlgT">
+  <form id="pkForm" novalidate="">
+    <div class="pm-modal-h"><h2 id="pkDlgT">Confirm pickup</h2><button type="button" data-modal-close="pkDlg" aria-label="Close">×</button></div>
+    <div class="pm-modal-b">
+      <p style="margin:0;font-size:14.5px;line-height:1.5" id="pkDlgTxt">How many parcels did you collect?</p>
+      <div class="stepper">
+        <button type="button" data-step="-1" aria-label="One less">−</button>
+        <input type="number" id="pkCount" inputmode="numeric" min="0" max="999" aria-label="Parcels collected">
+        <button type="button" data-step="1" aria-label="One more">+</button>
+      </div>
+      <p style="margin:0;font-size:12.5px;color:#9A3412;text-align:center" id="pkWarn" hidden=""></p>
+    </div>
+    <div class="pm-modal-f">
+      <button type="button" class="rp-btn" data-modal-close="pkDlg" style="background:#F1F5F9;color:#0F172A">Cancel</button>
+      <button type="submit" class="rp-btn" style="background:#F97316;color:#1C1917">Mark picked up</button>
+    </div>
+  </form>
+</dialog>
+<script src="assets/core.js"></script>
+<script src="assets/js/rider.js"></script>
+
+
+</body></html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Verify your phone · percelme</title>
+<meta name="theme-color" content="#10294A">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Fira+Code:wght@500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body data-area="public" data-page="OtpVerify">
+<div class="flex flex-col items-center justify-center gap-7 box-border min-h-[800px] py-10 px-5 bg-slate-100 font-sans text-slate-900">
+  <a class="flex items-center gap-2.5" href="Landing.html"><svg width="29" height="34" viewBox="0 0 48 56" aria-hidden="true"><circle class="fill-navy" cx="26" cy="22" r="20"></circle><rect class="fill-navy" x="6" y="22" width="11" height="32" rx="5.5"></rect><rect class="fill-accent-600" x="17" y="13" width="18" height="18" rx="3"></rect><path d="M20 13h12a3 3 0 0 1 3 3v2H17v-2a3 3 0 0 1 3-3z" fill="#9A3412"></path><rect x="24" y="13" width="4" height="18" fill="#FED7AA" opacity=".7"></rect></svg><span class="text-24 font-extrabold tracking-[-0.045em] text-navy">percel<span class="text-accent-600">me</span></span></a>
+  <form class="flex flex-col items-center gap-5 box-border w-full max-w-[460px] py-9 px-8 border border-solid border-slate-200 rounded-24 bg-white text-center shadow-[0_30px_60px_-36px_rgba(15,23,42,.35)]" id="otpForm" novalidate="">
+    <span class="flex items-center justify-center w-16 h-16 rounded-20 bg-brand-50"><svg class="stroke-brand-600" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect><path d="M12 18h.01"></path></svg></span>
+    <div><h1 class="m-0 text-26 font-extrabold tracking-[-0.02em]" id="otpTitle">Verify your phone</h1><p class="mt-2 mb-0 mx-0 leading-[1.6] text-slate-600">We sent a 6-digit code to <b class="text-slate-900" id="otpPhone">01712-•••678</b>. <a class="font-bold" id="otpChange" href="Register.html">Change</a></p></div>
+    <fieldset class="flex justify-center gap-2 w-full min-w-0 max-w-[396px] p-0 m-0 border-0 in-[.otp-err]:animate-shake" id="otpBoxes">
+      <legend class="absolute w-px h-px overflow-hidden [clip:rect(0_0_0_0)]">Verification code</legend>
+      <input class="otp-box" inputmode="numeric" pattern="[0-9]*" autocomplete="one-time-code" aria-label="Digit 1">
+      <input class="otp-box" inputmode="numeric" pattern="[0-9]*" autocomplete="off" aria-label="Digit 2">
+      <input class="otp-box" inputmode="numeric" pattern="[0-9]*" autocomplete="off" aria-label="Digit 3">
+      <input class="otp-box" inputmode="numeric" pattern="[0-9]*" autocomplete="off" aria-label="Digit 4">
+      <input class="otp-box" inputmode="numeric" pattern="[0-9]*" autocomplete="off" aria-label="Digit 5">
+      <input class="otp-box" inputmode="numeric" pattern="[0-9]*" autocomplete="off" aria-label="Digit 6">
+    </fieldset>
+    <div id="otpErr" class="box-border w-full py-3 px-3.5 rounded-12 bg-red-100 text-left text-14 font-semibold leading-[1.5] text-red-800" role="alert" hidden=""></div>
+    <button type="submit" id="otpSubmit" class="btn-primary">Verify &amp; continue</button>
+    <p class="m-0 text-14 text-slate-600" aria-live="polite">Didn't get the code? <span class="font-bold text-slate-900" id="otpTimer">Resend in 0:35</span><button type="button" id="otpResend" class="p-0 border-0 bg-transparent font-sans text-14 font-bold leading-[normal] text-brand-700 cursor-pointer hover:text-brand-900 hover:underline" hidden="">Resend code</button></p>
+    <aside class="demo-note flex items-start gap-3 box-border w-full py-3 px-3.5 border border-dashed border-accent-300 rounded-14 bg-accent-50 text-left text-13 leading-[1.6] text-orange-900" aria-label="Demo code"><span class="flex-none py-0.5 px-2 rounded-full bg-accent-500 text-11 font-extrabold tracking-[.06em] text-stone-900 uppercase">Demo</span><span>Use code <code>123456</code>. Any other code shows the error state.</span></aside>
+  </form>
+</div>
+<script src="assets/core.js"></script>
+<script src="assets/js/public.js"></script>
+
+
+</body></html>

@@ -1,0 +1,62 @@
+import { Merchant } from '@/types/merchant';
+
+export const initialMerchants: Merchant[] = [
+  {
+    id: 'M-11024',
+    name: 'Nabila Rahman',
+    shopName: 'Trendy Hijab House',
+    phone: '01922-445566',
+    email: 'trendyhijab@example.com',
+    assignedHubId: 'hub_mirpur',
+    status: 'active',
+    totalParcels: 342,
+    deliveredParcels: 318,
+    returnRatePercentage: 4.2,
+    availableCodBalance: 48600,
+    pendingCodBalance: 12400,
+    payoutAccount: {
+      type: 'nagad',
+      accountNumber: '01922-445566',
+    },
+  },
+  {
+    id: 'M-11042',
+    name: 'Imran Hossain',
+    shopName: 'Dhaka Gadget Hub',
+    phone: '01677-889900',
+    email: 'imran@dhakagadget.com',
+    assignedHubId: 'hub_gulshan',
+    status: 'active',
+    totalParcels: 890,
+    deliveredParcels: 835,
+    returnRatePercentage: 3.8,
+    availableCodBalance: 128450,
+    pendingCodBalance: 32000,
+    payoutAccount: {
+      type: 'bank',
+      bankName: 'City Bank PLC',
+      branchName: 'Gulshan Branch',
+      accountNumber: '110293847781',
+      routingNumber: '22527234',
+    },
+  },
+  {
+    id: 'M-10988',
+    name: 'Sultana Parvin',
+    shopName: 'Artisan Leather Craft',
+    phone: '01711-998877',
+    email: 'craft@artisanleather.bd',
+    assignedHubId: 'hub_dhanmondi',
+    status: 'active',
+    totalParcels: 145,
+    deliveredParcels: 139,
+    returnRatePercentage: 2.1,
+    availableCodBalance: 31200,
+    pendingCodBalance: 8500,
+    payoutAccount: {
+      type: 'bkash',
+      accountNumber: '01711-998877',
+    },
+  },
+];
+

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rider – Failed Delivery · percelme</title>
+<meta name="theme-color" content="#10294A">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="rider.webmanifest">
+<link rel="apple-touch-icon" href="assets/rider/icon-180.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Fira+Code:wght@500;600&amp;display=swap" rel="stylesheet">
+<style>
+/* Page-wide link rules: `a` sits in the base layer and `a:hover` skips the shared components, so the shared
+   components in app.css win over them as they did when core.css came after this block (PLANCSS Step 03). */
+body{margin:0}
+@layer base{a{color:#1D4ED8;text-decoration:none}}
+.rs{display:flex;align-items:center;gap:12px;padding:12px 14px;border:1px solid #E2E8F0;border-radius:14px;font-size:14.5px;font-weight:600;cursor:pointer;background:#fff;min-height:48px;box-sizing:border-box}
+.rs:has(input:checked){border:2px solid #DC2626;background:#FEF2F2;padding:11px 13px;font-weight:800}
+.rs:focus-within{outline:3px solid #93C5FD;outline-offset:2px}
+.rs input{width:18px;height:18px;accent-color:#DC2626;margin:0;flex:none}
+.dt{flex:1;height:44px;border:1px solid #CBD5E1;border-radius:12px;background:#fff;font:700 13.5px 'Plus Jakarta Sans',sans-serif;cursor:pointer;color:#0F172A}
+.dt[aria-pressed="true"]{border:2px solid #2563EB;background:#EFF6FF;color:#1D4ED8}
+.chk{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:700;padding:10px 12px;border:1px solid #E2E8F0;border-radius:12px;cursor:pointer;min-height:44px;box-sizing:border-box}
+.chk input{width:20px;height:20px;accent-color:#2563EB;margin:0;flex:none}
+.photo-btn{width:78px;height:64px;border:2px dashed #CBD5E1;border-radius:14px;background:#F8FAFC;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font:700 11.5px 'Plus Jakarta Sans',sans-serif;color:#475569;flex:none;overflow:hidden;position:relative;box-sizing:border-box}
+.photo-btn:focus-within{outline:3px solid #93C5FD;outline-offset:2px}
+.photo-btn img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.err{color:#B91C1C;font-size:12.5px;font-weight:700}
+</style>
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body data-area="rider" data-page="RiderFailed">
+<div class="rp-app" style="width:390px;height:844px;box-sizing:border-box;font-family:'Plus Jakarta Sans',sans-serif;color:#0F172A;background:#64748B;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;position:relative">
+  <a href="RiderDelivery.html?id=PM-2410-8F3K29" id="fBackdrop" tabindex="-1" aria-hidden="true" style="flex:1;min-height:60px;background:linear-gradient(#475569,#334155);display:flex;align-items:flex-start;justify-content:center;padding-top:24px"><span style="font-size:13px;color:#E2E8F0;font-weight:700" id="fStop">Stop 1 · Nusrat Jahan</span></a>
+  <form id="fForm" novalidate="" role="dialog" aria-labelledby="fTitle" class="rp-safe-b" style="background:#fff;border-radius:26px 26px 0 0;padding:10px 16px 18px;display:flex;flex-direction:column;gap:14px;margin-top:-30px;overflow-y:auto;max-height:calc(100% - 30px);box-sizing:border-box;position:relative">
+    <span aria-hidden="true" style="width:44px;height:5px;border-radius:99px;background:#CBD5E1;align-self:center;flex:none"></span>
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px"><div><b style="font-size:19px" id="fTitle">Why couldn't you deliver?</b><div style="font-family:'Fira Code',monospace;font-size:12.5px;font-weight:600;color:#1D4ED8;margin-top:2px" id="fSub">PM-2410-8F3K29 · attempt 1 of 3</div></div><a href="RiderDelivery.html?id=PM-2410-8F3K29" id="fClose" aria-label="Close" style="width:44px;height:44px;border-radius:12px;background:#F1F5F9;display:flex;align-items:center;justify-content:center;color:#334155;flex:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"></path></svg></a></div>
+    <fieldset id="fReasons" style="border:0;padding:0;margin:0;display:flex;flex-direction:column;gap:8px">
+      <legend class="pm-sr">Reason (required)</legend>
+      <label class="rs"><input type="radio" name="rs" value="Customer not answering phone" required="">Customer not answering phone</label>
+      <label class="rs"><input type="radio" name="rs" value="Customer asked to deliver later">Customer asked to deliver later</label>
+      <label class="rs"><input type="radio" name="rs" value="Customer refused the parcel">Customer refused the parcel</label>
+      <label class="rs"><input type="radio" name="rs" value="Wrong or incomplete address">Wrong or incomplete address</label>
+      <label class="rs"><input type="radio" name="rs" value="Other reason">Other reason</label>
+      <span class="err" id="fReasonErr" hidden="">Choose a reason</span>
+    </fieldset>
+    <div style="display:flex;flex-direction:column;gap:8px" id="fRetryBox">
+      <b style="font-size:14px" id="fRetryLbl">Try again</b>
+      <div style="display:flex;gap:8px" role="group" aria-labelledby="fRetryLbl"><button class="dt" type="button" data-retry="today" aria-pressed="false">Later today</button><button class="dt" type="button" data-retry="tomorrow" aria-pressed="true">Tomorrow</button><button class="dt" type="button" data-retry="date" aria-pressed="false">Pick date</button></div>
+      <label class="rp-field" id="fDateWrap" hidden="">Reschedule date<input type="date" id="fDate" min="2026-10-25"></label>
+    </div>
+    <label class="chk"><input type="checkbox" id="fReturn">Return parcel to hub (don't try again)</label>
+    <div style="display:flex;gap:10px">
+      <label class="photo-btn" id="fPhotoBtn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"></path><circle cx="12" cy="13" r="3"></circle></svg><span>Photo</span><input type="file" accept="image/*" capture="environment" id="fPhoto" class="pm-sr" aria-label="Add a photo (optional)"></label>
+      <label style="flex:1;display:flex;flex-direction:column;gap:4px"><span class="pm-sr">Note</span><textarea id="fNote" placeholder="Add a note (optional)" style="flex:1;height:64px;border:1px solid #CBD5E1;border-radius:14px;padding:10px 12px;font:500 14px 'Plus Jakarta Sans',sans-serif;resize:none;box-sizing:border-box"></textarea><span class="err" id="fNoteErr" hidden="">Tell the hub what happened</span></label>
+    </div>
+    <div style="font-size:12.5px;color:#475569;background:#F8FAFC;border-radius:12px;padding:10px 12px" id="fCalls">No calls logged yet — try calling 01712-345678 first. Customer and merchant get an SMS automatically.</div>
+    <button type="submit" style="height:54px;flex:none;border:0;border-radius:14px;background:#DC2626;color:#fff;font:800 16px 'Plus Jakarta Sans',sans-serif;cursor:pointer">Submit failed delivery</button>
+  </form>
+<div class="rp-offline" role="status" hidden="">You're offline — changes are saved on this phone</div></div>
+<script src="assets/core.js"></script>
+<script src="assets/js/rider.js"></script>
+
+
+</body></html>
